@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://scripts/HintEffect.gd" type="Script" id=1]
-[ext_resource path="res://art/Pieces/Blue Piece.png" type="Texture" id=2]
+[ext_resource path="res://art/Pieces/PSOE_logotipo_compacto.svg.png" type="Texture" id=2]
 
 [node name="HintEffect" type="Node2D"]
 script = ExtResource( 1 )
@@ -16,6 +16,5 @@ texture = ExtResource( 2 )
 [node name="SizeTween" type="Tween" parent="."]
 
 [node name="ColorTween" type="Tween" parent="."]
-
 [connection signal="tween_completed" from="SizeTween" to="." method="_on_SizeTween_tween_completed"]
 [connection signal="tween_completed" from="ColorTween" to="." method="_on_ColorTween_tween_completed"]

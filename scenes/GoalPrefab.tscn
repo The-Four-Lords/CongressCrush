@@ -2,7 +2,7 @@
 
 [ext_resource path="res://art/UI/goal background.png" type="Texture" id=1]
 [ext_resource path="res://scripts/GoalPrefab.gd" type="Script" id=2]
-[ext_resource path="res://art/Pieces/Blue Piece.png" type="Texture" id=3]
+[ext_resource path="res://art/Pieces/PSOE_logotipo_compacto.svg.png" type="Texture" id=3]
 [ext_resource path="res://art/Fonts/Kenney Rocket.ttf" type="DynamicFontData" id=4]
 
 [sub_resource type="DynamicFont" id=1]
@@ -26,7 +26,7 @@ margin_right = 36.0
 margin_bottom = 56.0
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer"]
-margin_right = 33.0
+margin_right = 32.0
 margin_bottom = 32.0
 rect_min_size = Vector2( 32, 32 )
 texture = ExtResource( 3 )
@@ -35,10 +35,9 @@ stretch_mode = 6
 
 [node name="Label" type="Label" parent="VBoxContainer"]
 margin_top = 36.0
-margin_right = 33.0
+margin_right = 32.0
 margin_bottom = 51.0
 custom_fonts/font = SubResource( 1 )
-text = "0/5"
+text = "0"
 align = 1
 valign = 1
-
