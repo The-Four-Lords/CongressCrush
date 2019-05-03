@@ -31,7 +31,7 @@ func update_score_bar():
 	score_bar.value = escrutinio
 
 func get_pertentage_seats(seats):
-	return (seats / 350) * 100
+	return (seats / Utils.MAX_NUMBER_SEATS) * 100
 
 func get_total_seats():
 	var current_sum = 0.0
@@ -39,21 +39,20 @@ func get_total_seats():
 		current_sum += goal_container.get_child(i).current_number
 	return current_sum
 
-func make_goal(new_max, new_texture, new_value):
+func make_goal(goal):
 	var current = goal_prefab.instance()
 	goal_container.add_child(current)
-	current.set_goal_values(new_max, new_texture, new_value)
+	current.set_goal_values(goal)
 
 func _on_grid_setup_max_score(max_score):
 	setup_score_bar(max_score)
 
-func _on_GoalHolder_create_goal(new_max, new_texture, new_value):
-	make_goal(new_max, new_texture, new_value)
+func _on_GoalHolder_create_goal(goal):
+	make_goal(goal)
 
 func _on_grid_check_goal(goal_type):
 	for i in goal_container.get_child_count():
 		goal_container.get_child(i).update_goal_values(goal_type)
-
 
 func _on_ice_holder_break_ice(goal_type):
 	_on_grid_check_goal(goal_type)

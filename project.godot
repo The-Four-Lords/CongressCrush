@@ -21,7 +21,7 @@ config/icon="res://icon.png"
 
 [autoload]
 
-utils="*res://scripts/utils.gd"
+Utils="*res://scripts/Utils.gd"
 SoundManager="*res://scenes/SoundManager.tscn"
 
 [display]

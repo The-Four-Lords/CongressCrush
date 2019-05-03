@@ -3,7 +3,7 @@ extends Node
 signal create_goal
 signal game_won
 
-const MAX_NUMBER_SEATS = 350
+
 var seats = []
 
 func _ready():
@@ -11,8 +11,8 @@ func _ready():
 
 func create_goals():
 	for i in get_child_count():
-		var current = get_child(i)
-		emit_signal("create_goal", current.max_needed, current.goal_texture, current.goal_string)
+		var current_goal = get_child(i)
+		emit_signal("create_goal", current_goal)
 
 func check_goals(goal_type):
 	for i in get_child_count():
@@ -29,9 +29,9 @@ func global_goal_met():
 	print("\n")
 	for i in get_child_count():
 		num_seats += get_child(i).number_collected
-		print("El partido ", get_child(i).goal_string, " tiene ", get_child(i).number_collected, " escaños.")
+		print("El partido ", get_child(i).goal_target, " tiene ", get_child(i).number_collected, " escaños.")
 	print("Total de escaños: ", num_seats)
-	return num_seats >= MAX_NUMBER_SEATS
+	return num_seats >= Utils.MAX_NUMBER_SEATS
 
 func check_game_win():
 	if global_goal_met():

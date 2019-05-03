@@ -1,5 +1,7 @@
 extends Node2D
 
+export (String) var piece_name
+export (String) var piece_short_name
 export (String) var color
 export (Texture) var row_texture
 export (Texture) var column_texture
@@ -15,7 +17,7 @@ var move_tween
 var matched = false
 
 func _ready():
-	move_tween = get_node("move_tween")
+	move_tween = get_node("MoveTween")
 
 func move(target):
 	move_tween.interpolate_property(

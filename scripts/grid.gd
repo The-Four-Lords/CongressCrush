@@ -47,12 +47,12 @@ var firstTurn
 
 # The piece array
 var possible_pieces = [
-preload("res://scenes/Piece/blue_piece.tscn"),
-preload("res://scenes/Piece/Piece_yellow.tscn"),
-preload("res://scenes/Piece/Piece_pink.tscn"),
-preload("res://scenes/Piece/Piece_orange.tscn"),
-preload("res://scenes/Piece/Piece_lightGreen.tscn"),
-preload("res://scenes/Piece/Piece_green.tscn"),
+preload("res://scenes/Piece/cs_piece.tscn"),
+preload("res://scenes/Piece/erc_piece.tscn"),
+preload("res://scenes/Piece/podemos_piece.tscn"),
+preload("res://scenes/Piece/pp_piece.tscn"),
+preload("res://scenes/Piece/psoe_piece.tscn"),
+preload("res://scenes/Piece/vox_piece.tscn"),
 ]
 
 # Hint Stuff
@@ -115,71 +115,6 @@ signal camera_effect
 
 func _ready():
 	init_game()
-
-func initialize_empty_spaces():
-	if (empty_spaces.size() == 0):
-		empty_spaces = PoolVector2Array([
-			Vector2(0,9),
-			Vector2(1,9),
-			Vector2(0,8),
-			Vector2(1,8),
-			Vector2(6,9),
-			Vector2(7,9),
-			Vector2(6,8),
-			Vector2(7,8),
-			Vector2(1,0),
-			Vector2(2,0),
-			Vector2(3,0),
-			Vector2(4,0),
-			Vector2(5,0),
-			Vector2(6,0),
-			Vector2(3,1),
-			Vector2(4,1)
-			])
-
-func initialize_special():
-	if (empty_spaces.size() == 0): 
-		empty_spaces.append(Vector2(0, 0))
-		empty_spaces.append(Vector2(7, 0))
-		empty_spaces.append(Vector2(0, 9))
-		empty_spaces.append(Vector2(7, 9))
-		empty_spaces.append(Vector2(3, 4))
-		empty_spaces.append(Vector2(4, 4))
-		empty_spaces.append(Vector2(3, 5))
-		empty_spaces.append(Vector2(4, 5))
-	if (ice_spaces.size() == 0): 
-		ice_spaces.append(Vector2(3, 0))
-		ice_spaces.append(Vector2(4, 0))
-		ice_spaces.append(Vector2(3, 9))
-		ice_spaces.append(Vector2(4, 9))
-	if (lock_spaces.size() == 0): 
-		lock_spaces.append(Vector2(3, 2))
-		lock_spaces.append(Vector2(4, 2))
-		lock_spaces.append(Vector2(3, 7))
-		lock_spaces.append(Vector2(4, 7))
-	if (concrete_spaces.size() == 0): 
-		concrete_spaces.append(Vector2(3, 1))
-		concrete_spaces.append(Vector2(4, 1))
-		concrete_spaces.append(Vector2(3, 8))
-		concrete_spaces.append(Vector2(4, 8))
-	if (slime_spaces.size() == 0): 
-		slime_spaces.append(Vector2(0, 4))
-		slime_spaces.append(Vector2(0, 5))
-		slime_spaces.append(Vector2(7, 4))
-		slime_spaces.append(Vector2(7, 5))
-
-func initialize_preset_spaces():
-	if (preset_spaces.size() == 0):
-		preset_spaces.append(Vector3(0, 0, 0))
-		preset_spaces.append(Vector3(1, 0, 0))
-		preset_spaces.append(Vector3(2, 0, 1))
-		preset_spaces.append(Vector3(3, 0, 0))
-		preset_spaces.append(Vector3(4, 0, 0))
-		preset_spaces.append(Vector3(0, 1, 1))
-		preset_spaces.append(Vector3(1, 1, 1))
-		preset_spaces.append(Vector3(2, 1, 0))
-		preset_spaces.append(Vector3(3, 1, 1))
-		preset_spaces.append(Vector3(4, 1, 1))
 
 func move_camera():
 	var new_pos = grid_to_pixel(width / 2 - 0.5, height / 2 - 0.5)
@@ -782,12 +717,12 @@ func init_game(regeneration = false):
 			$game_time.start()
 	color_bomb_used = false
 	streak = 1
-	#initialize_special()
-	initialize_empty_spaces()
+	#Utils.initialize_special(empty_spaces, ice_spaces, lock_spaces, concrete_spaces, slime_spaces)
+	empty_spaces = Utils.initialize_empty_spaces()
 
 func start_spawn():
 	if isDemo:
-		initialize_preset_spaces()
+		preset_spaces = Utils.initialize_preset_spaces()
 		spawn_preset_pieces()
 	else:
 		spawn_ice()

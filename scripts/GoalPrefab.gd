@@ -2,21 +2,21 @@ extends TextureRect
 
 var current_number = 0
 var max_value
-var goal_value = ""
+var goal_target = ""
 var goal_texture
 onready var goal_label = $VBoxContainer2/Name
 onready var goal_score = $VBoxContainer2/Score
 onready var this_texture = $VBoxContainer/TextureRect
 
-func set_goal_values(new_max, new_texture, new_value):
-	this_texture.texture = new_texture
-	max_value = new_max
-	goal_value = new_value
+func set_goal_values(goal):
+	goal_label.text = goal.goal_display_name
+	this_texture.texture = goal.goal_texture
+	max_value = goal.max_needed
+	goal_target = goal.goal_target
 	goal_score.text = String(current_number)
-	goal_label.text = utils.get_translate(new_value)
 
 func update_goal_values(goal_type):
-	if goal_type == goal_value:
+	if goal_type == goal_target:
 		current_number += 1
 		if current_number <= max_value:
 			goal_score.text = String(current_number)
