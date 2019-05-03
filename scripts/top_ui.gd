@@ -53,6 +53,19 @@ func _on_GoalHolder_create_goal(goal):
 func _on_grid_check_goal(goal_type):
 	for i in goal_container.get_child_count():
 		goal_container.get_child(i).update_goal_values(goal_type)
+	
+	reorganize_seats()
+
+func reorganize_seats():
+	# Bubble sort
+	for i in goal_container.get_child_count(): 
+		for inner_i in range(goal_container.get_child_count() - i):
+			if (inner_i + 1) < goal_container.get_child_count():
+				var current_goal : Node = goal_container.get_child(inner_i)
+				var next_goal : Node = goal_container.get_child(inner_i + 1)
+				if current_goal.current_number < next_goal.current_number:
+					goal_container.remove_child(current_goal)
+					goal_container.add_child_below_node(next_goal, current_goal)
 
 func _on_ice_holder_break_ice(goal_type):
 	_on_grid_check_goal(goal_type)

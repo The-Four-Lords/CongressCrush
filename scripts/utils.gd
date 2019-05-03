@@ -77,9 +77,3 @@ func initialize_special(empty_spaces, ice_spaces, lock_spaces, concrete_spaces, 
 			Vector2(7, 4),
 			Vector2(7, 5)
 		])
-
-func reorganize_nodes_by_value(node_array: Array):
-	if node_array.size() > 0:
-		for i in node_array.size() - 1:
-			if (i + 1) < node_array.size():
-				node_array[i + 1] = node_array[i]
