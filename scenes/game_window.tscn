@@ -15,12 +15,12 @@
 [ext_resource path="res://scenes/GameOverPanel.tscn" type="PackedScene" id=13]
 [ext_resource path="res://scripts/GoalHolder.gd" type="Script" id=14]
 [ext_resource path="res://scenes/Goal.tscn" type="PackedScene" id=15]
-[ext_resource path="res://art/Pieces/PP.svg.png" type="Texture" id=16]
-[ext_resource path="res://art/Pieces/Vox.svg.png" type="Texture" id=17]
-[ext_resource path="res://art/Pieces/PSOE_logotipo_compacto.svg.png" type="Texture" id=18]
-[ext_resource path="res://art/Pieces/Cs_logotipo_compacto.svg.png" type="Texture" id=19]
-[ext_resource path="res://art/Pieces/ERC_logotipo_compacto.svg.png" type="Texture" id=20]
-[ext_resource path="res://art/Pieces/PODEMOS_logotipo_compacto.svg.png" type="Texture" id=21]
+[ext_resource path="res://art/UI/PP_escaño.png" type="Texture" id=16]
+[ext_resource path="res://art/UI/Vox_escaño.png" type="Texture" id=17]
+[ext_resource path="res://art/UI/Psoe_escaño.png" type="Texture" id=18]
+[ext_resource path="res://art/UI/Cs_escaño.png" type="Texture" id=19]
+[ext_resource path="res://art/UI/ERC_escaño.png" type="Texture" id=20]
+[ext_resource path="res://art/UI/Podemos_escaño.png" type="Texture" id=21]
 [ext_resource path="res://scenes/GameWinScreen.tscn" type="PackedScene" id=22]
 [ext_resource path="res://scenes/PauseScreen.tscn" type="PackedScene" id=23]
 [ext_resource path="res://scripts/MusicPlayer.gd" type="Script" id=24]
@@ -144,6 +144,7 @@ goal_string = "pink"
 
 [node name="MusicPlayer" type="Node" parent="."]
 script = ExtResource( 24 )
+
 [connection signal="pause_game" from="CanvasLayer/bottom_ui" to="PauseScreen" method="_on_bottom_ui_pause_game"]
 [connection signal="camera_effect" from="grid" to="Camera2D" method="_on_grid_camera_effect"]
 [connection signal="check_goal" from="grid" to="CanvasLayer/top_ui" method="_on_grid_check_goal"]
