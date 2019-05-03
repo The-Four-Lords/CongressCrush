@@ -4,17 +4,19 @@ var current_number = 0
 var max_value
 var goal_value = ""
 var goal_texture
-onready var goal_label = $VBoxContainer/Label
+onready var goal_label = $VBoxContainer2/Name
+onready var goal_score = $VBoxContainer2/Score
 onready var this_texture = $VBoxContainer/TextureRect
 
 func set_goal_values(new_max, new_texture, new_value):
 	this_texture.texture = new_texture
 	max_value = new_max
 	goal_value = new_value
-	goal_label.text = String(current_number)
+	goal_score.text = String(current_number)
+	goal_label.text = utils.get_translate(new_value)
 
 func update_goal_values(goal_type):
 	if goal_type == goal_value:
 		current_number += 1
 		if current_number <= max_value:
-			goal_label.text = String(current_number)
+			goal_score.text = String(current_number)
