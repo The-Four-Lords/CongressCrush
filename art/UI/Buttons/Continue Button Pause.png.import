@@ -2,16 +2,11 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Continue Button Pause.png-921493b0cf38de671d3195dfe7a0ccc4.stex"
-metadata={
-"vram_texture": false
-}
+valid=false
 
 [deps]
 
 source_file="res://art/UI/Buttons/Continue Button Pause.png"
-dest_files=[ "res://.import/Continue Button Pause.png-921493b0cf38de671d3195dfe7a0ccc4.stex" ]
-
 [params]
 
 compress/mode=0

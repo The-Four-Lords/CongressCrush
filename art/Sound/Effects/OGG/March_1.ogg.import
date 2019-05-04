@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/March_1.ogg-f24db5fb165c1d79f5d424d0da267539.oggstr"
+
+[deps]
+
+source_file="res://art/Sound/Effects/OGG/March_1.ogg"
+dest_files=[ "res://.import/March_1.ogg-f24db5fb165c1d79f5d424d0da267539.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

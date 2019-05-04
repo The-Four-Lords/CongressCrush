@@ -26,7 +26,7 @@ func move(target):
 	position, 
 	target, 
 	.3, 
-	Tween.TRANS_ELASTIC, 
+	Tween.TRANS_BOUNCE, 
 	Tween.EASE_OUT)
 	move_tween.start()
 

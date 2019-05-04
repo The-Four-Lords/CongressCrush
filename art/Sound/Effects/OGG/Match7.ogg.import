@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Match7.ogg-40b3c294ff893b138605915bef4f88f6.oggstr"
+
+[deps]
+
+source_file="res://art/Sound/Effects/OGG/Match7.ogg"
+dest_files=[ "res://.import/Match7.ogg-40b3c294ff893b138605915bef4f88f6.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

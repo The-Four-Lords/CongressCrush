@@ -9,7 +9,12 @@ preload("res://art/Sound/Music/theme-1.ogg")
 ]
 
 var possible_sounds = [
-preload("res://art/Sound/Effects/tone-beep.wav")
+
+preload("res://art/Sound/Effects/OGG/Match1.ogg"),
+preload("res://art/Sound/Effects/OGG/Match2.ogg"),
+preload("res://art/Sound/Effects/OGG/Match3.ogg"),
+preload("res://art/Sound/Effects/OGG/Match4.ogg"),
+preload("res://art/Sound/Effects/OGG/Match5.ogg")
 ]
 
 var possible_combo_sound = [

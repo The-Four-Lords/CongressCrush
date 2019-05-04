@@ -2,16 +2,11 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Quit Button Pause.png-db1beb93ae7c8fc835d3f3189609009c.stex"
-metadata={
-"vram_texture": false
-}
+valid=false
 
 [deps]
 
 source_file="res://art/UI/Buttons/Quit Button Pause.png"
-dest_files=[ "res://.import/Quit Button Pause.png-db1beb93ae7c8fc835d3f3189609009c.stex" ]
-
 [params]
 
 compress/mode=0

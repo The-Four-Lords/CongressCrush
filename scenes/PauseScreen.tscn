@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scripts/PauseScreen.gd" type="Script" id=1]
 [ext_resource path="res://art/UI/Panels/Pause Panel.png" type="Texture" id=2]
-[ext_resource path="res://art/UI/Buttons/Quit Button Pause.png" type="Texture" id=3]
-[ext_resource path="res://art/UI/Buttons/Continue Button Pause.png" type="Texture" id=4]
-[ext_resource path="res://Animations/slide_in.tres" type="Animation" id=5]
+[ext_resource path="res://art/UI/Buttons/Quit Button.png" type="Texture" id=3]
+[ext_resource path="res://art/UI/Buttons/Quit Button_Pressed.png" type="Texture" id=4]
+[ext_resource path="res://art/UI/Buttons/Continue Button.png" type="Texture" id=5]
+[ext_resource path="res://art/UI/Buttons/Continue Button_pressed.png" type="Texture" id=6]
+[ext_resource path="res://Animations/slide_in.tres" type="Animation" id=7]
 
 [node name="PauseScreen" type="CanvasLayer"]
 pause_mode = 2
@@ -13,48 +15,52 @@ transform = Transform2D( 1, 0, 0, 1, 576, 0 )
 script = ExtResource( 1 )
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
+margin_left = -16.268
+margin_top = -221.746
+margin_right = 613.732
+margin_bottom = 1818.25
 custom_constants/margin_right = 32
 custom_constants/margin_top = 384
 custom_constants/margin_left = 32
-custom_constants/margin_bottom = 896
+custom_constants/margin_bottom = 886
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer"]
 margin_left = 32.0
 margin_top = 384.0
-margin_right = 544.0
-margin_bottom = 870.0
+margin_right = 598.0
+margin_bottom = 1154.0
 texture = ExtResource( 2 )
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/TextureRect"]
-margin_left = 36.0
-margin_top = 236.0
-margin_right = 476.0
-margin_bottom = 400.0
-custom_constants/separation = 40
+margin_left = 45.7606
+margin_top = 522.312
+margin_right = 485.761
+margin_bottom = 686.312
+custom_constants/separation = 28
 alignment = 1
 
 [node name="Quit" type="TextureButton" parent="MarginContainer/TextureRect/HBoxContainer"]
-margin_left = 8.0
-margin_right = 200.0
+margin_left = 14.0
+margin_right = 206.0
 margin_bottom = 164.0
 rect_min_size = Vector2( 192, 100 )
 texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 4 )
 expand = true
 stretch_mode = 5
 
 [node name="Continue" type="TextureButton" parent="MarginContainer/TextureRect/HBoxContainer"]
-margin_left = 240.0
-margin_right = 432.0
+margin_left = 234.0
+margin_right = 426.0
 margin_bottom = 164.0
 rect_min_size = Vector2( 192, 100 )
-texture_normal = ExtResource( 4 )
+texture_normal = ExtResource( 5 )
+texture_pressed = ExtResource( 6 )
 expand = true
 stretch_mode = 5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/slide_in = ExtResource( 5 )
+anims/slide_in = ExtResource( 7 )
 
 [connection signal="pressed" from="MarginContainer/TextureRect/HBoxContainer/Quit" to="." method="_on_Quit_pressed"]
 [connection signal="pressed" from="MarginContainer/TextureRect/HBoxContainer/Continue" to="." method="_on_Continue_pressed"]

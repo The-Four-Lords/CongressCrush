@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Swap_back.ogg-098a37f43b83a4dc9c1433245ac69709.oggstr"
+
+[deps]
+
+source_file="res://art/Sound/Effects/OGG/Swap_back.ogg"
+dest_files=[ "res://.import/Swap_back.ogg-098a37f43b83a4dc9c1433245ac69709.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

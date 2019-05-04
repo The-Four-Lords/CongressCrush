@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://art/Bottom UI v 3.png" type="Texture" id=1]
 [ext_resource path="res://scripts/bottom_ui.gd" type="Script" id=2]
 [ext_resource path="res://art/UI/Buttons/Pause Button.png" type="Texture" id=3]
-[ext_resource path="res://art/UI/Buttons/Button Template Orange.png" type="Texture" id=4]
+[ext_resource path="res://art/UI/Buttons/Pause Button_pressed.png" type="Texture" id=4]
+[ext_resource path="res://art/UI/Buttons/Button Template Orange.png" type="Texture" id=5]
 
 [sub_resource type="DynamicFontData" id=1]
 font_path = "res://art/Fonts/Kenney Blocks.ttf"
@@ -40,6 +41,7 @@ margin_right = 100.0
 margin_bottom = 124.0
 rect_min_size = Vector2( 100, 100 )
 texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 4 )
 expand = true
 stretch_mode = 3
 
@@ -52,7 +54,7 @@ size_flags_vertical = 3
 
 [node name="Sprite" type="Sprite" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 position = Vector2( 50.7736, 65.0536 )
-texture = ExtResource( 4 )
+texture = ExtResource( 5 )
 
 [node name="CounterLabel" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 margin_right = 401.0
@@ -61,4 +63,5 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 2 )
 text = "00"
+
 [connection signal="pressed" from="MarginContainer/HBoxContainer/Pause" to="." method="_on_Pause_pressed"]

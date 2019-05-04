@@ -91,7 +91,7 @@ wait_time = 0.5
 one_shot = true
 
 [node name="refill_timer" type="Timer" parent="."]
-wait_time = 0.5
+wait_time = 0.01
 one_shot = true
 
 [node name="create_pieces_timer" type="Timer" parent="."]
@@ -106,7 +106,6 @@ one_shot = true
 [node name="GameOverPanel" parent="." instance=ExtResource( 13 )]
 
 [node name="GoalHolder" type="Node" parent="."]
-editor/display_folded = true
 script = ExtResource( 14 )
 
 [node name="GoalPP" parent="GoalHolder" instance=ExtResource( 15 )]
