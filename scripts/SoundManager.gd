@@ -5,16 +5,18 @@ onready var sound_player = $SoundPlayer
 onready var combo_sound_player = $ComboSoundPlayer
 
 var possible_music = [
-preload("res://art/Sound/Music/theme-1.ogg")
+#preload("res://art/Sound/Music/theme-1.ogg")
 ]
 
 var possible_sounds = [
 
-preload("res://art/Sound/Effects/OGG/Match1.ogg"),
-preload("res://art/Sound/Effects/OGG/Match2.ogg"),
-preload("res://art/Sound/Effects/OGG/Match3.ogg"),
-preload("res://art/Sound/Effects/OGG/Match4.ogg"),
-preload("res://art/Sound/Effects/OGG/Match5.ogg")
+preload("res://art/Sound/Effects/Match5.wav"),
+preload("res://art/Sound/Effects/Match2.wav"),
+preload("res://art/Sound/Effects/Match3.wav"),
+preload("res://art/Sound/Effects/Match4.wav"),
+preload("res://art/Sound/Effects/Match5.wav"),
+preload("res://art/Sound/Effects/Match6.wav"),
+preload("res://art/Sound/Effects/Match7.wav")
 ]
 
 var possible_combo_sound = [
