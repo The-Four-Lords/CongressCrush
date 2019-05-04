@@ -106,6 +106,7 @@ one_shot = true
 [node name="GameOverPanel" parent="." instance=ExtResource( 13 )]
 
 [node name="GoalHolder" type="Node" parent="."]
+editor/display_folded = true
 script = ExtResource( 14 )
 
 [node name="GoalPP" parent="GoalHolder" instance=ExtResource( 15 )]
@@ -150,6 +151,7 @@ goal_target = "purple"
 
 [node name="MusicPlayer" type="Node" parent="."]
 script = ExtResource( 24 )
+
 [connection signal="pause_game" from="CanvasLayer/bottom_ui" to="PauseScreen" method="_on_bottom_ui_pause_game"]
 [connection signal="camera_effect" from="grid" to="Camera2D" method="_on_grid_camera_effect"]
 [connection signal="check_goal" from="grid" to="GoalHolder" method="_on_grid_check_goal"]

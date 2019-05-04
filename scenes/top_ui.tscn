@@ -44,30 +44,31 @@ custom_constants/margin_top = 4
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 margin_top = 4.0
-margin_right = 550.0
-margin_bottom = 31.0
+margin_right = 567.0
+margin_bottom = 70.0
 hint_tooltip = "
 "
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
-margin_right = 550.0
-margin_bottom = 27.0
+margin_right = 563.0
+margin_bottom = 66.0
 size_flags_horizontal = 3
-custom_constants/separation = -28
+custom_constants/separation = -47
 alignment = 1
 
 [node name="TextureProgress" type="TextureProgress" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-margin_right = 550.0
-margin_bottom = 25.0
+margin_top = 13.0
+margin_right = 563.0
+margin_bottom = 70.0
 max_value = 500.0
 rounded = true
 texture_under = ExtResource( 2 )
 texture_progress = ExtResource( 3 )
 
 [node name="ScoreLabel" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-margin_top = -3.0
-margin_right = 550.0
-margin_bottom = 27.0
+margin_top = 23.0
+margin_right = 563.0
+margin_bottom = 53.0
 size_flags_vertical = 1
 custom_fonts/font = SubResource( 1 )
 text = "0%"
@@ -75,8 +76,8 @@ align = 1
 
 [node name="CounterLabel" type="Label" parent="MarginContainer/HBoxContainer"]
 visible = false
-margin_left = 198.0
-margin_right = 748.0
+margin_left = 554.0
+margin_right = 662.0
 margin_bottom = 108.0
 size_flags_horizontal = 3
 size_flags_vertical = 7
@@ -85,10 +86,10 @@ text = "00"
 align = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer"]
-visible = false
-margin_left = 198.0
-margin_right = 748.0
-margin_bottom = 63.0
+margin_left = 567.0
+margin_right = 567.0
+margin_bottom = 66.0
 size_flags_horizontal = 3
 size_flags_vertical = 7
 alignment = 1
+
