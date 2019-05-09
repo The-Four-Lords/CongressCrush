@@ -59,7 +59,6 @@ alignment = 1
 [node name="TextureProgress" type="TextureProgress" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 margin_right = 556.0
 margin_bottom = 44.0
-max_value = 350.0
 rounded = true
 texture_under = ExtResource( 2 )
 texture_progress = ExtResource( 3 )
@@ -90,4 +89,3 @@ margin_bottom = 36.0
 size_flags_horizontal = 3
 size_flags_vertical = 7
 alignment = 1
-

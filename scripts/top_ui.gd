@@ -13,9 +13,9 @@ func _ready():
 	_on_grid_update_score(0)
 
 func _on_grid_update_score(new_value):
-	current_score += new_value
+	current_score = get_pertentage_seats(get_total_seats())
 	#score_label.text = String(current_score)
-	score_label.text = String("%.2f" % get_pertentage_seats(get_total_seats())) + '%'
+	score_label.text = String("%.2f" % current_score) + '%'
 	update_score_bar()
 
 func _on_grid_update_counter(new_value = -1):
@@ -23,12 +23,14 @@ func _on_grid_update_counter(new_value = -1):
 	counter_label.text = String(current_counter)
 	
 func setup_score_bar(max_score):
-	score_bar.max_value = max_score
+	# We don't need this because we make the score bar by %
+	#score_bar.max_value = max_score
+	pass
 
 func update_score_bar():
 	#score_bar.value = current_score
 	var escrutinio = get_pertentage_seats(get_total_seats())
-	score_bar.value = escrutinio
+	score_bar.value = current_score
 
 func get_pertentage_seats(seats):
 	return (seats / Utils.MAX_NUMBER_SEATS) * 100

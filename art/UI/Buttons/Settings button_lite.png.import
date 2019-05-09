@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Top UI v 3.png-a7cfd00a77dd5f019d2b4b116469157e.stex"
+path="res://.import/Settings button_lite.png-bac629514d604c1b99e1dc4c77d0b2b2.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/Top UI v 3.png"
-dest_files=[ "res://.import/Top UI v 3.png-a7cfd00a77dd5f019d2b4b116469157e.stex" ]
+source_file="res://art/UI/Buttons/Settings button_lite.png"
+dest_files=[ "res://.import/Settings button_lite.png-bac629514d604c1b99e1dc4c77d0b2b2.stex" ]
 
 [params]
 
