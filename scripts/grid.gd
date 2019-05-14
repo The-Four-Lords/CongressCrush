@@ -47,9 +47,9 @@ var firstTurn
 
 # The piece array
 var possible_pieces = [
-#preload("res://scenes/Piece/cs_piece.tscn"),
-#preload("res://scenes/Piece/erc_piece.tscn"),
-#preload("res://scenes/Piece/podemos_piece.tscn"),
+preload("res://scenes/Piece/cs_piece.tscn"),
+preload("res://scenes/Piece/erc_piece.tscn"),
+preload("res://scenes/Piece/podemos_piece.tscn"),
 preload("res://scenes/Piece/pp_piece.tscn"),
 preload("res://scenes/Piece/psoe_piece.tscn"),
 preload("res://scenes/Piece/vox_piece.tscn"),
