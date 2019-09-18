@@ -29,7 +29,7 @@ func setup_score_bar(max_score):
 
 func update_score_bar():
 	#score_bar.value = current_score
-	var escrutinio = get_pertentage_seats(get_total_seats())
+	get_pertentage_seats(get_total_seats())
 	score_bar.value = current_score
 
 func get_pertentage_seats(seats):
@@ -39,6 +39,9 @@ func get_total_seats():
 	var current_sum = 0.0
 	for i in goal_container.get_child_count():
 		current_sum += goal_container.get_child(i).current_number
+	# If the last combo adds more value to the sum than the MAX_NUMBER_SEATS the score bar goes beyond 100%
+	if current_sum > Utils.MAX_NUMBER_SEATS:
+		current_sum = Utils.MAX_NUMBER_SEATS
 	return current_sum
 
 func make_goal(goal):
