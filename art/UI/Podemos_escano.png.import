@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Vox_escaño.png-aacade980e826291115e7cfbea2803c5.stex"
+path="res://.import/Podemos_escano.png-2e4bde580f7e7e8afcae622574fd8612.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/UI/Vox_escaño.png"
-dest_files=[ "res://.import/Vox_escaño.png-aacade980e826291115e7cfbea2803c5.stex" ]
+source_file="res://art/UI/Podemos_escano.png"
+dest_files=[ "res://.import/Podemos_escano.png-2e4bde580f7e7e8afcae622574fd8612.stex" ]
 
 [params]
 

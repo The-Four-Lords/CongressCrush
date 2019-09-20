@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Podemos_escaño.png-4c7f7d977f65e9edd8f85427d277a782.stex"
+path="res://.import/PP_escano.png-b96c742eeba5b29cf9785a21e1048b69.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/UI/Podemos_escaño.png"
-dest_files=[ "res://.import/Podemos_escaño.png-4c7f7d977f65e9edd8f85427d277a782.stex" ]
+source_file="res://art/UI/PP_escano.png"
+dest_files=[ "res://.import/PP_escano.png-b96c742eeba5b29cf9785a21e1048b69.stex" ]
 
 [params]
 

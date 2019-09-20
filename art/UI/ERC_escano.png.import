@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/ERC_escaño.png-a88aab61f2958e78593095b74e2c22f7.stex"
+path="res://.import/ERC_escano.png-f8ae1553f594d97aafb0b27a07e8a198.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/UI/ERC_escaño.png"
-dest_files=[ "res://.import/ERC_escaño.png-a88aab61f2958e78593095b74e2c22f7.stex" ]
+source_file="res://art/UI/ERC_escano.png"
+dest_files=[ "res://.import/ERC_escano.png-f8ae1553f594d97aafb0b27a07e8a198.stex" ]
 
 [params]
 

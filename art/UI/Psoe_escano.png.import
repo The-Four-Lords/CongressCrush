@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/PP_escaño.png-1fadc86460b321bace192e8b49d16023.stex"
+path="res://.import/Psoe_escano.png-3ad999aa006a4ab1058bdf96cfb97f6f.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/UI/PP_escaño.png"
-dest_files=[ "res://.import/PP_escaño.png-1fadc86460b321bace192e8b49d16023.stex" ]
+source_file="res://art/UI/Psoe_escano.png"
+dest_files=[ "res://.import/Psoe_escano.png-3ad999aa006a4ab1058bdf96cfb97f6f.stex" ]
 
 [params]
 
