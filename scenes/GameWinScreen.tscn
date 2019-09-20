@@ -3,7 +3,7 @@
 [ext_resource path="res://scripts/GameWinScreen.gd" type="Script" id=1]
 [ext_resource path="res://art/UI/Panels/WinPanels/PSOE_WIN.png" type="Texture" id=2]
 [ext_resource path="res://art/UI/Buttons/Continue Button Game Win.png" type="Texture" id=3]
-[ext_resource path="res://Animations/slide_in.tres" type="Animation" id=4]
+[ext_resource path="res://animations/slide_in.tres" type="Animation" id=4]
 
 [node name="GameWinScreen" type="CanvasLayer"]
 offset = Vector2( 576, 0 )

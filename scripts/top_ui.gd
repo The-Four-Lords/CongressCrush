@@ -40,8 +40,8 @@ func get_total_seats():
 	for i in goal_container.get_child_count():
 		current_sum += goal_container.get_child(i).current_number
 	# If the last combo adds more value to the sum than the MAX_NUMBER_SEATS the score bar goes beyond 100%
-	if current_sum > Utils.MAX_NUMBER_SEATS:
-		current_sum = Utils.MAX_NUMBER_SEATS
+	#if current_sum > Utils.MAX_NUMBER_SEATS:
+	#	current_sum = Utils.MAX_NUMBER_SEATS
 	return current_sum
 
 func make_goal(goal):

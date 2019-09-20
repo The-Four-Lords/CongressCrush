@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Win Panel.png-12c5b2241b9eac77bcac9e8e233eb85c.stex"
+path="res://.import/Win_Panel.png-611ba1d1930e3bbe0047ac4ab3cdd555.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/UI/Panels/Win Panel.png"
-dest_files=[ "res://.import/Win Panel.png-12c5b2241b9eac77bcac9e8e233eb85c.stex" ]
+source_file="res://art/UI/Panels/Win_Panel.png"
+dest_files=[ "res://.import/Win_Panel.png-611ba1d1930e3bbe0047ac4ab3cdd555.stex" ]
 
 [params]
 
