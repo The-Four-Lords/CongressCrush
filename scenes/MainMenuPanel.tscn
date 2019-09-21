@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scenes/BaseMenuPanel.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/MainMenuPanel.gd" type="Script" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://art/UI/Buttons/PlayButton.png" type="Texture" id=4]
 [ext_resource path="res://art/UI/Buttons/PlayButton_pressed.png" type="Texture" id=5]
 [ext_resource path="res://art/UI/Buttons/Settings button_lite.png" type="Texture" id=6]
+[ext_resource path="res://art/UI/Buttons/godot_logo.png" type="Texture" id=7]
 
 [node name="MainMenuPanel" index="0" instance=ExtResource( 1 )]
 offset = Vector2( 576, 0 )
@@ -16,7 +17,7 @@ script = ExtResource( 2 )
 editor/display_folded = false
 
 [node name="GraphicAndButtons" parent="MarginContainer" index="0"]
-margin_bottom = 1885.0
+margin_bottom = 1005.0
 custom_constants/separation = -7
 
 [node name="Graphic" parent="MarginContainer/GraphicAndButtons" index="0"]
@@ -46,6 +47,11 @@ rect_min_size = Vector2( 512, 128 )
 texture_normal = ExtResource( 6 )
 texture_pressed = ExtResource( 6 )
 stretch_mode = 2
+
+[node name="Sprite" type="Sprite" parent="MarginContainer/GraphicAndButtons/Buttons" index="2"]
+position = Vector2( 446.94, 454.021 )
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 7 )
 
 [connection signal="pressed" from="MarginContainer/GraphicAndButtons/Buttons/Button1" to="." method="_on_Button1_pressed"]
 [connection signal="pressed" from="MarginContainer/GraphicAndButtons/Buttons/Button2" to="." method="_on_Button2_pressed"]
