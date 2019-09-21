@@ -1,6 +1,8 @@
 extends Node
 
-const MAX_NUMBER_SEATS = 350
+const MAX_NUMBER_SEATS = 10
+
+var win_color
 
 
 func initialize_preset_spaces():
