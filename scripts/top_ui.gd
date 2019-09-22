@@ -40,8 +40,8 @@ func get_total_seats():
 	for i in goal_container.get_child_count():
 		current_sum += goal_container.get_child(i).current_number
 	# If the last combo adds more value to the sum than the MAX_NUMBER_SEATS the score bar goes beyond 100%
-	#if current_sum > Utils.MAX_NUMBER_SEATS:
-	#	current_sum = Utils.MAX_NUMBER_SEATS
+	if current_sum > Utils.MAX_NUMBER_SEATS:
+		current_sum = Utils.MAX_NUMBER_SEATS
 	return current_sum
 
 func make_goal(goal):
@@ -71,6 +71,15 @@ func reorganize_seats():
 				if current_goal.current_number < next_goal.current_number:
 					goal_container.remove_child(current_goal)
 					goal_container.add_child_below_node(next_goal, current_goal)
+	Utils.win_color = get_winner_color()
 
+#Return winner color
+func get_winner_color():
+	if is_draw(): return "draw"
+	else: return goal_container.get_child(0).goal_target
+
+func is_draw():
+	return goal_container.get_child(0).current_number == goal_container.get_child(1).current_number
+	
 func _on_ice_holder_break_ice(goal_type):
 	_on_grid_check_goal(goal_type)

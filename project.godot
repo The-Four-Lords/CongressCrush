@@ -15,9 +15,9 @@ _global_script_class_icons={
 
 [application]
 
-config/name="congressCrush"
+config/name="Congress Crush"
 run/main_scene="res://scenes/GameMenu.tscn"
-config/icon="res://icon.png"
+config/icon="res://art/Logo/App_icon.png"
 
 [autoload]
 
