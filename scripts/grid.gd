@@ -5,12 +5,12 @@ enum {wait, move, swapBack, destroy, collapse, refill, win}
 var state = wait
 
 # Constants for bomb combinations
-const COLUMN_COLOR_BOMB = 99
-const ROW_COLOR_BOMB = 99
-const COLUMN_ADJACENT_BOMB = 99
-const ROW_ADJACENT_BOMB = 99
-const COLUMN_BOMB = 99
-const ROW_BOMB = 99
+const COLUMN_COLOR_BOMB = 5
+const ROW_COLOR_BOMB = 5
+const COLUMN_ADJACENT_BOMB = 3
+const ROW_ADJACENT_BOMB = 3
+const COLUMN_BOMB = 4
+const ROW_BOMB = 4
 
 # Grid Variables
 export (int) var width
@@ -49,9 +49,6 @@ var firstTurn
 var possible_pieces = [
 preload("res://scenes/Piece/cs_piece.tscn"),
 preload("res://scenes/Piece/erc_piece.tscn"),
-preload("res://scenes/Piece/podemos_piece.tscn"),
-preload("res://scenes/Piece/pp_piece.tscn"),
-preload("res://scenes/Piece/psoe_piece.tscn"),
 preload("res://scenes/Piece/vox_piece.tscn"),
 ]
 

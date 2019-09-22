@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Match5.wav-bb01fc092155e0d569ea52ae7f2057d6.sample"
+
+[deps]
+
+source_file="res://art/Sound/Effects/Match5.wav"
+dest_files=[ "res://.import/Match5.wav-bb01fc092155e0d569ea52ae7f2057d6.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

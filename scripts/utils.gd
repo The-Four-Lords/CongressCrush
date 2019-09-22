@@ -1,6 +1,6 @@
 extends Node
 
-const MAX_NUMBER_SEATS = 10
+const MAX_NUMBER_SEATS = 350
 
 var win_color
 
