@@ -7,6 +7,7 @@ export (Texture) var row_texture
 export (Texture) var column_texture
 export (Texture) var adjacent_texture
 export (Texture) var color_bomb_texture
+export (int) var value = 1
 
 var is_row_bomb = false
 var is_column_bomb = false

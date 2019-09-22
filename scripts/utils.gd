@@ -1,6 +1,7 @@
 extends Node
 
 const MAX_NUMBER_SEATS = 350
+const GLOBAL_PIECE_VALUE = 2
 
 var win_color
 
