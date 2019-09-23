@@ -14,6 +14,6 @@ func check_goal(goal_type):
 
 func update_goal():
 	if number_collected < max_needed:
-		number_collected += Utils.GLOBAL_PIECE_VALUE
+		number_collected += Utils.global_piece_value
 	if number_collected == max_needed:
 		if !goal_met: goal_met = true

@@ -1,10 +1,12 @@
 extends Node
 
+# Max numbers of seats in the Congress
 const MAX_NUMBER_SEATS = 350
-const GLOBAL_PIECE_VALUE = 2
+# Difficulty level: easy, medium, hard
+const GLOBAL_PIECE_VALUES_ACCORDING_LEVEL = [6, 4, 2]
+var global_piece_value = GLOBAL_PIECE_VALUES_ACCORDING_LEVEL[1] # Medium by default
 
 var win_color
-
 
 func initialize_preset_spaces():
 	return PoolVector3Array([
