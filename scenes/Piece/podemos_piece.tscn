@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scenes/Piece.tscn" type="PackedScene" id=1]
 [ext_resource path="res://art/Pieces/PODEMOS_Row.png" type="Texture" id=2]
 [ext_resource path="res://art/Pieces/PODEMOS_Column.png" type="Texture" id=3]
 [ext_resource path="res://art/Pieces/PODEMOS_Adjacent.png" type="Texture" id=4]
-[ext_resource path="res://art/Pieces/PODEMOS_logotipo_compacto.svg.png" type="Texture" id=5]
+[ext_resource path="res://art/Pieces/Color_bomb.png" type="Texture" id=5]
+[ext_resource path="res://art/Pieces/PODEMOS_logotipo_compacto.svg.png" type="Texture" id=6]
 
 [node name="PodemosPiece" index="0" instance=ExtResource( 1 )]
 piece_name = "Unidas Podemos"
@@ -13,7 +14,7 @@ color = "purple"
 row_texture = ExtResource( 2 )
 column_texture = ExtResource( 3 )
 adjacent_texture = ExtResource( 4 )
-color_bomb_texture = ExtResource( 4 )
+color_bomb_texture = ExtResource( 5 )
 
 [node name="Sprite" parent="." index="0"]
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
