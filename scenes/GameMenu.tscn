@@ -21,6 +21,7 @@ expand = true
 [node name="MainMenuPanel" parent="." instance=ExtResource( 3 )]
 
 [node name="SettingsPanel" parent="." instance=ExtResource( 4 )]
+
 [connection signal="play_pressed" from="MainMenuPanel" to="." method="_on_MainMenuPanel_play_pressed"]
 [connection signal="settings_pressed" from="MainMenuPanel" to="." method="_on_MainMenuPanel_settings_pressed"]
 [connection signal="back_pressed" from="SettingsPanel" to="." method="_on_SettingsPanel_back_pressed"]
