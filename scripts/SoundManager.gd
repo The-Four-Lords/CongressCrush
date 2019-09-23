@@ -3,6 +3,7 @@ extends Node
 onready var music_player = $MusicPlayer
 onready var sound_player = $SoundPlayer
 onready var combo_sound_player = $ComboSoundPlayer
+onready var win_player = $WinPlayer
 
 var possible_music = [
 preload("res://art/Sound/Music/theme-1.ogg")
@@ -18,6 +19,17 @@ preload("res://art/Sound/Effects/Match5.wav"),
 preload("res://art/Sound/Effects/Match6.wav"),
 preload("res://art/Sound/Effects/Match7.wav")
 ]
+
+var win_sounds = {
+"blue" : preload("res://art/Sound/Music/WIN/blue.ogg"),
+"red" : preload("res://art/Sound/Music/WIN/red.ogg"),
+"green" : preload("res://art/Sound/Music/WIN/green.ogg"),
+"orange" : preload("res://art/Sound/Music/WIN/orange.ogg"),
+"purple" : preload("res://art/Sound/Music/WIN/purple.ogg"),
+"yellow" : preload("res://art/Sound/Music/WIN/yellow.ogg"),
+"lose" : preload("res://art/Sound/Music/WIN/lose.ogg"),
+"draw" : preload("res://art/Sound/Music/WIN/draw.ogg")
+}
 
 var possible_combo_sound = [
 preload("res://art/Sound/Effects/delisioso.ogg")
@@ -50,12 +62,20 @@ func play_fixed_sound(sound):
 		sound_player.stream = possible_sounds[sound]
 		sound_player.play()
 
+func play_win_music(win_color):
+	win_player.stream = win_sounds[win_color]
+	win_player.play()
+
+func stop_music_player():
+	music_player.stop()
+
 func disable_sounds(enable):
 	if enable:
 		music_player.play()
-		sound_player.volume_db = -10
+		sound_player.volume_db = -20
 		combo_sound_player.volume_db = -5
 	else:
+		win_player.stop()
 		music_player.stop()
 		sound_player.volume_db = -80
 		combo_sound_player.volume_db = -80

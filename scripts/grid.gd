@@ -706,6 +706,8 @@ func regenerate_board():
 	start_spawn()
 	
 func init_game(regeneration = false):
+	SoundManager.disable_sounds(false)
+	SoundManager.disable_sounds(true)
 	move_camera()
 	firstTurn = true
 	all_pieces = make_2d_array()

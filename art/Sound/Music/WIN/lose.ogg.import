@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/lose.ogg-9fff4cd43c4d9343c1a6eed0b69cce7c.oggstr"
+
+[deps]
+
+source_file="res://art/Sound/Music/WIN/lose.ogg"
+dest_files=[ "res://.import/lose.ogg-9fff4cd43c4d9343c1a6eed0b69cce7c.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

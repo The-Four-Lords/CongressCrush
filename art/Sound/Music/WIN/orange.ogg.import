@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/orange.ogg-cc5cbd21b1b17dbb8fb92691789dba4c.oggstr"
+
+[deps]
+
+source_file="res://art/Sound/Music/WIN/orange.ogg"
+dest_files=[ "res://.import/orange.ogg-cc5cbd21b1b17dbb8fb92691789dba4c.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -14,3 +14,5 @@ volume_db = -10.0
 [node name="ComboSoundPlayer" type="AudioStreamPlayer" parent="."]
 volume_db = -5.0
 
+[node name="WinPlayer" type="AudioStreamPlayer" parent="."]
+volume_db = -10.0

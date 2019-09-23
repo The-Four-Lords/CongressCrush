@@ -3,8 +3,12 @@ extends Node
 # Max numbers of seats in the Congress
 const MAX_NUMBER_SEATS = 350
 # Difficulty level: easy, medium, hard
-const GLOBAL_PIECE_VALUES_ACCORDING_LEVEL = [6, 4, 2]
-var global_piece_value = GLOBAL_PIECE_VALUES_ACCORDING_LEVEL[1] # Medium by default
+const GLOBAL_PIECE_VALUES_ACCORDING_LEVEL = {
+"easy" :6, 
+"medium" : 4,
+"hard" : 2
+}
+var global_piece_value = GLOBAL_PIECE_VALUES_ACCORDING_LEVEL["hard"] # Hard by default
 
 var win_color
 

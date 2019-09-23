@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/purple.ogg-47f565ff2f2c89358bc583e003e84aa3.oggstr"
+
+[deps]
+
+source_file="res://art/Sound/Music/WIN/purple.ogg"
+dest_files=[ "res://.import/purple.ogg-47f565ff2f2c89358bc583e003e84aa3.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

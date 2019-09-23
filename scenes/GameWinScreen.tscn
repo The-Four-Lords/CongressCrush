@@ -53,5 +53,4 @@ stretch_mode = 5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/slide_in = ExtResource( 4 )
-
 [connection signal="pressed" from="MarginContainer/TextureRect/VBoxContainer/ContinueButton" to="." method="_on_ContinueButton_pressed"]

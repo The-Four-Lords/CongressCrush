@@ -32,7 +32,7 @@ expand = true
 
 [node name="Buttons" parent="MarginContainer/GraphicAndButtons" index="1"]
 margin_top = 518.0
-margin_bottom = 1174.0
+margin_bottom = 922.0
 
 [node name="Button1" parent="MarginContainer/GraphicAndButtons/Buttons" index="0"]
 margin_bottom = 256.0
@@ -52,31 +52,28 @@ expand = true
 stretch_mode = 5
 
 [node name="EasyButton" type="TextureButton" parent="MarginContainer/GraphicAndButtons/Buttons" index="2"]
-anchor_right = 0.89
-margin_left = 100.0
-margin_top = -100.0
-margin_right = -313.04
-margin_bottom = -36.0
-rect_scale = Vector2( 1.5, 1.5 )
+visible = false
+margin_top = 424.0
+margin_right = 536.0
+margin_bottom = 488.0
 toggle_mode = true
 texture_normal = ExtResource( 7 )
 texture_pressed = ExtResource( 8 )
 
 [node name="MediumButton" type="TextureButton" parent="MarginContainer/GraphicAndButtons/Buttons" index="3"]
-margin_left = 250.0
-margin_top = -100.0
-margin_right = 314.0
-margin_bottom = -36.0
-rect_scale = Vector2( 1.5, 1.5 )
+visible = false
+margin_top = 508.0
+margin_right = 536.0
+margin_bottom = 572.0
 toggle_mode = true
 texture_normal = ExtResource( 9 )
 texture_pressed = ExtResource( 10 )
 
 [node name="HardButton" type="TextureButton" parent="MarginContainer/GraphicAndButtons/Buttons" index="4"]
-margin_left = 400.0
-margin_top = -100.0
-margin_bottom = -36.0
-rect_scale = Vector2( 1.5, 1.5 )
+visible = false
+margin_top = 592.0
+margin_right = 536.0
+margin_bottom = 656.0
 toggle_mode = true
 texture_normal = ExtResource( 11 )
 texture_pressed = ExtResource( 12 )
