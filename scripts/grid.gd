@@ -1,5 +1,7 @@
 extends Node2D
 
+var random_panel = 0
+
 # State Machine - Added states: swapBack, destroy, collapse and refill in order to do this actions only if is needed
 enum {wait, move, swapBack, destroy, collapse, refill, win}
 var state = wait
@@ -720,11 +722,15 @@ func init_game(regeneration = false):
 	color_bomb_used = false
 	streak = 1
 	#Utils.initialize_special(empty_spaces, ice_spaces, lock_spaces, concrete_spaces, slime_spaces)
-	empty_spaces = Utils.initialize_empty_spaces()
+	#empty_spaces = Utils.initialize_empty_spaces() # constant panel
+	randomize()
+	random_panel = randi() % Utils.get_empty_spaces_dictionary_size()
+	empty_spaces = Utils.get_random_empty_spaces(random_panel)
 
 func start_spawn():
 	if isDemo:
-		preset_spaces = Utils.initialize_preset_spaces()
+		#preset_spaces = Utils.initialize_preset_spaces() # constant panel
+		preset_spaces = Utils.get_random_empty_spaces(random_panel)
 		spawn_preset_pieces()
 	else:
 		spawn_ice()
