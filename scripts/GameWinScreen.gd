@@ -17,10 +17,12 @@ func _on_ContinueButton_pressed():
 	get_tree().reload_current_scene()
 
 func _on_GoalHolder_game_won():
-	var img = Image.new()
+	var stream_texture = load(win_panels[Utils.win_color])
 	var image_texture = ImageTexture.new()
-	img.load(win_panels[Utils.win_color])
-	image_texture.create_from_image(img)
+	var image = Image.new()
+	image = stream_texture.get_data()
+	image.lock()
+	image_texture.create_from_image(image, 0)
 	win_panel_texture.texture = image_texture
 	slide_in()
 	SoundManager.disable_sounds(false)

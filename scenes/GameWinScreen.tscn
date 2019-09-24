@@ -56,4 +56,3 @@ texture_pressed = ExtResource( 6 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/slide_in = ExtResource( 7 )
-
