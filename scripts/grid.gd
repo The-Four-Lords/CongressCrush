@@ -284,7 +284,7 @@ func color_bomb_checks(piece_one, piece_two, column, row):
 	else:
 		# When combine a color bomb, the status must change to destroy in order to delete the color pieces
 		if !is_piece_sinker(piece_one) and !is_piece_sinker(piece_two):
-			color_bomb_used = true
+			color_bomb_used = true # Produces issue #37
 			setState(destroy)
 			if piece_one.is_color_bomb:
 				match_color(piece_two.color)
@@ -294,6 +294,7 @@ func color_bomb_checks(piece_one, piece_two, column, row):
 				match_color(piece_one.color)
 				turn_matched(piece_two)
 				add_to_array(Vector2(column, row))
+	color_bomb_used = false # Solves issue #37
 
 func touch_difference(grid_1, grid_2):
 	var difference = grid_2 - grid_1
@@ -380,6 +381,7 @@ func turn_matched(piece):
 	piece.dim()
 
 func find_bombs():
+	print("DEBUG - color_bomb_used:",color_bomb_used)
 	if !color_bomb_used:
 		# Iterate over the current matches array
 		for i in current_matches.size():
@@ -396,30 +398,32 @@ func find_bombs():
 					column_matched += 1
 				if this_row == current_row and this_color == current_color:
 					row_matched += 1
+			#print("column_matched:",column_matched,"row_matched:",row_matched)
 			if column_matched == COLUMN_COLOR_BOMB or row_matched == ROW_COLOR_BOMB:
-				#print("DEBUG - color bomb | column_matched: ", column_matched, " row_matched: " , row_matched)
+				print("DEBUG - color bomb | column_matched: ", column_matched, " row_matched: " , row_matched, " current_color:",current_color)
 				make_bomb(3, current_color)
 				continue
 			elif column_matched >= COLUMN_ADJACENT_BOMB and row_matched >= ROW_ADJACENT_BOMB:
-				#print("DEBUG - adjacent bomb | column_matched: ", column_matched, " row_matched: " , row_matched)
+				print("DEBUG - adjacent bomb | column_matched: ", column_matched, " row_matched: " , row_matched, " current_color:",current_color)
 				make_bomb(0, current_color)
 				continue
 			# In row matched make column bomb
 			elif row_matched == ROW_BOMB:
-				#print("DEBUG - column bomb | column_matched: ", column_matched, " row_matched: " , row_matched)
+				print("DEBUG - column bomb | column_matched: ", column_matched, " row_matched: " , row_matched, " current_color:",current_color)
 				make_bomb(1, current_color)
 				continue
 			# In column matched make row bombs
 			elif column_matched == COLUMN_BOMB:
-				#print("DEBUG - row bomb | column_matched: ", column_matched, " row_matched: " , row_matched)
+				print("DEBUG - row bomb | column_matched: ", column_matched, " row_matched: " , row_matched, " current_color:",current_color)
 				make_bomb(2, current_color)
 				continue
-			elif column_matched == 4 or row_matched == 4:
+			elif column_matched >= 4 or row_matched >= 4:
 				SoundManager.play_random_combo_sound()
 				continue
 
 # bomb_type: 0 is adjacent, 1 is column bomb. 2 is row bomb and 3 is color bomb
 func make_bomb(bomb_type, color):
+	#print("DEBUG - make_bomb bomb_type:",bomb_type," color:",color)
 	var piece_one = all_pieces[tempSwapBack.column][tempSwapBack.row]
 	var piece_two = all_pieces[tempSwapBack.column + tempSwapBack.direction.x][tempSwapBack.row + tempSwapBack.direction.y]
 	for i in current_matches.size():
@@ -721,8 +725,8 @@ func init_game(regeneration = false):
 			$game_time.start()
 	color_bomb_used = false
 	streak = 1
-	#Utils.initialize_special(empty_spaces, ice_spaces, lock_spaces, concrete_spaces, slime_spaces)
-	#empty_spaces = Utils.initialize_empty_spaces() # constant panel
+	Utils.initialize_special(empty_spaces, ice_spaces, lock_spaces, concrete_spaces, slime_spaces)
+	#empty_spaces = Utils.initialize_empty_spaces() # constant panel	
 	randomize()
 	random_panel = randi() % Utils.get_empty_spaces_dictionary_size()
 	empty_spaces = Utils.get_random_empty_spaces(random_panel)
