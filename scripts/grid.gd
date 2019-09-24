@@ -381,7 +381,7 @@ func turn_matched(piece):
 	piece.dim()
 
 func find_bombs():
-	print("DEBUG - color_bomb_used:",color_bomb_used)
+	#print("DEBUG - color_bomb_used:",color_bomb_used)
 	if !color_bomb_used:
 		# Iterate over the current matches array
 		for i in current_matches.size():
@@ -398,23 +398,22 @@ func find_bombs():
 					column_matched += 1
 				if this_row == current_row and this_color == current_color:
 					row_matched += 1
-			#print("column_matched:",column_matched,"row_matched:",row_matched)
 			if column_matched == COLUMN_COLOR_BOMB or row_matched == ROW_COLOR_BOMB:
-				print("DEBUG - color bomb | column_matched: ", column_matched, " row_matched: " , row_matched, " current_color:",current_color)
+				#print("DEBUG - color bomb | column_matched: ", column_matched, " row_matched: " , row_matched, " current_color:",current_color)
 				make_bomb(3, current_color)
 				continue
 			elif column_matched >= COLUMN_ADJACENT_BOMB and row_matched >= ROW_ADJACENT_BOMB:
-				print("DEBUG - adjacent bomb | column_matched: ", column_matched, " row_matched: " , row_matched, " current_color:",current_color)
+				#print("DEBUG - adjacent bomb | column_matched: ", column_matched, " row_matched: " , row_matched, " current_color:",current_color)
 				make_bomb(0, current_color)
 				continue
 			# In row matched make column bomb
 			elif row_matched == ROW_BOMB:
-				print("DEBUG - column bomb | column_matched: ", column_matched, " row_matched: " , row_matched, " current_color:",current_color)
+				#print("DEBUG - column bomb | column_matched: ", column_matched, " row_matched: " , row_matched, " current_color:",current_color)
 				make_bomb(1, current_color)
 				continue
 			# In column matched make row bombs
 			elif column_matched == COLUMN_BOMB:
-				print("DEBUG - row bomb | column_matched: ", column_matched, " row_matched: " , row_matched, " current_color:",current_color)
+				#print("DEBUG - row bomb | column_matched: ", column_matched, " row_matched: " , row_matched, " current_color:",current_color)
 				make_bomb(2, current_color)
 				continue
 			elif column_matched >= 4 or row_matched >= 4:
