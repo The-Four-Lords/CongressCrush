@@ -1,9 +1,12 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scripts/GameWinScreen.gd" type="Script" id=1]
 [ext_resource path="res://art/UI/Panels/WinPanels/PSOE_WIN.png" type="Texture" id=2]
-[ext_resource path="res://art/UI/Buttons/Continue Button Game Win.png" type="Texture" id=3]
-[ext_resource path="res://animations/slide_in.tres" type="Animation" id=4]
+[ext_resource path="res://art/UI/Buttons/Quit Button.png" type="Texture" id=3]
+[ext_resource path="res://art/UI/Buttons/Quit Button_Pressed.png" type="Texture" id=4]
+[ext_resource path="res://art/UI/Buttons/Continue Button.png" type="Texture" id=5]
+[ext_resource path="res://art/UI/Buttons/Continue Button_pressed.png" type="Texture" id=6]
+[ext_resource path="res://animations/slide_in.tres" type="Animation" id=7]
 
 [node name="GameWinScreen" type="CanvasLayer"]
 offset = Vector2( 576, 0 )
@@ -29,28 +32,28 @@ margin_right = 632.0
 margin_bottom = 1331.0
 texture = ExtResource( 2 )
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/TextureRect"]
-margin_left = 129.783
-margin_top = 528.074
-margin_right = 385.783
-margin_bottom = 760.074
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/TextureRect"]
+margin_left = 55.2924
+margin_top = 666.875
+margin_right = 476.989
+margin_bottom = 794.875
+custom_constants/separation = 28
+alignment = 1
 
-[node name="Label" type="Label" parent="MarginContainer/TextureRect/VBoxContainer"]
-margin_right = 256.0
-margin_bottom = 100.0
-size_flags_vertical = 3
-
-[node name="ContinueButton" type="TextureButton" parent="MarginContainer/TextureRect/VBoxContainer"]
-margin_top = 104.0
-margin_right = 256.0
-margin_bottom = 232.0
-rect_min_size = Vector2( 256, 128 )
-size_flags_horizontal = 2
-size_flags_vertical = 3
+[node name="QuitButt" type="TextureButton" parent="MarginContainer/TextureRect/HBoxContainer2"]
+margin_left = 25.0
+margin_right = 195.0
+margin_bottom = 128.0
 texture_normal = ExtResource( 3 )
-expand = true
-stretch_mode = 5
+texture_pressed = ExtResource( 4 )
+
+[node name="TextureButton" type="TextureButton" parent="MarginContainer/TextureRect/HBoxContainer2"]
+margin_left = 223.0
+margin_right = 395.0
+margin_bottom = 128.0
+texture_normal = ExtResource( 5 )
+texture_pressed = ExtResource( 6 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/slide_in = ExtResource( 4 )
-[connection signal="pressed" from="MarginContainer/TextureRect/VBoxContainer/ContinueButton" to="." method="_on_ContinueButton_pressed"]
+anims/slide_in = ExtResource( 7 )
+

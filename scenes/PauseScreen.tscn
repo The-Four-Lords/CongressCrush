@@ -27,15 +27,15 @@ custom_constants/margin_bottom = 886
 [node name="TextureRect" type="TextureRect" parent="MarginContainer"]
 margin_left = 32.0
 margin_top = 384.0
-margin_right = 598.0
-margin_bottom = 1154.0
+margin_right = 605.0
+margin_bottom = 1153.0
 texture = ExtResource( 2 )
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/TextureRect"]
-margin_left = 45.7606
-margin_top = 522.312
-margin_right = 485.761
-margin_bottom = 686.312
+margin_left = 52.9357
+margin_top = 543.837
+margin_right = 492.936
+margin_bottom = 707.837
 custom_constants/separation = 28
 alignment = 1
 

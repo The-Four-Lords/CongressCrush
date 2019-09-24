@@ -33,20 +33,20 @@ margin_bottom = 1155.0
 texture = ExtResource( 2 )
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/TextureRect"]
-margin_left = 76.5891
-margin_top = 669.487
-margin_right = 519.589
-margin_bottom = 874.487
+margin_left = 75.1571
+margin_top = 662.327
+margin_right = 518.157
+margin_bottom = 867.327
 custom_constants/separation = 30
 
 [node name="QuitButton" type="TextureButton" parent="MarginContainer/TextureRect/HBoxContainer"]
-margin_right = 169.0
+margin_right = 170.0
 margin_bottom = 205.0
 texture_normal = ExtResource( 3 )
 texture_pressed = ExtResource( 4 )
 
 [node name="RestartButton" type="TextureButton" parent="MarginContainer/TextureRect/HBoxContainer"]
-margin_left = 199.0
+margin_left = 200.0
 margin_right = 384.0
 margin_bottom = 205.0
 texture_normal = ExtResource( 5 )
