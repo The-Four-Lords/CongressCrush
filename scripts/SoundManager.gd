@@ -32,8 +32,25 @@ var win_sounds = {
 }
 
 var combo_sounds = {
-	"blue" : preload("res://art/Sound/Effects/Cortes/blue.ogg"),
-	"purple" : preload("res://art/Sound/Effects/Cortes/purple.ogg")
+	"blue1" : preload("res://art/Sound/Effects/Cortes/blue1.ogg"),
+	"blue2" : preload("res://art/Sound/Effects/Cortes/blue2.ogg"),
+	"blue3" : preload("res://art/Sound/Effects/Cortes/blue3.ogg"),
+	"purple1" : preload("res://art/Sound/Effects/Cortes/purple1.ogg"),
+	"purple2" : preload("res://art/Sound/Effects/Cortes/purple2.ogg"),
+	"purple3" : preload("res://art/Sound/Effects/Cortes/purple2.ogg"),
+	"green1" : preload("res://art/Sound/Effects/Cortes/green1.ogg"),
+	"green2" : preload("res://art/Sound/Effects/Cortes/green2.ogg"),
+	"green3" : preload("res://art/Sound/Effects/Cortes/green2.ogg"),
+	"orange1" : preload("res://art/Sound/Effects/Cortes/orange1.ogg"),
+	"orange2" : preload("res://art/Sound/Effects/Cortes/orange2.ogg"),
+	"orange3" : preload("res://art/Sound/Effects/Cortes/orange3.ogg"),
+	"red1" : preload("res://art/Sound/Effects/Cortes/red1.ogg"),
+	"red2" : preload("res://art/Sound/Effects/Cortes/red2.ogg"),
+	"red3" : preload("res://art/Sound/Effects/Cortes/red3.ogg"),
+	"yellow1" : preload("res://art/Sound/Effects/Cortes/yellow1.ogg"),
+	"yellow2" : preload("res://art/Sound/Effects/Cortes/yellow2.ogg"),
+	"yellow3" : preload("res://art/Sound/Effects/Cortes/yellow3.ogg"),
+	"color" : preload("res://art/Sound/Effects/Cortes/color.ogg")
 }
 
 var possible_combo_sound = [
@@ -56,6 +73,7 @@ func play_random_sound():
 		sound_player.stream = possible_sounds[temp]
 		sound_player.play()
 
+#Deprecated - now is play_combo_sound(color)
 func play_random_combo_sound():
 	if possible_combo_sound.size() > 0:
 		var temp = floor(rand_range(0, possible_combo_sound.size()))
@@ -63,7 +81,14 @@ func play_random_combo_sound():
 		combo_sound_player.play()
 		
 func play_combo_sound(color):
-	combo_sound_player.stream = combo_sounds[color]
+	print("color:",color)
+	if (color == "color"):
+		combo_sound_player.stream = combo_sounds[color]
+		combo_sound_player.play()
+		return
+	var number = floor(rand_range(1, 4))
+	var sound = color + String(number)
+	combo_sound_player.stream = combo_sounds[sound]
 	combo_sound_player.play()
 
 func play_fixed_sound(sound):
@@ -72,6 +97,7 @@ func play_fixed_sound(sound):
 		sound_player.play()
 
 func play_win_music(win_color):
+	print("DEBUG sound win_color:",win_color)
 	win_player.stream = win_sounds[win_color]
 	win_player.play()
 

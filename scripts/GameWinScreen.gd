@@ -17,6 +17,7 @@ func _on_ContinueButton_pressed():
 	get_tree().reload_current_scene()
 
 func _on_GoalHolder_game_won():
+	print("DEBUG panel_color:",Utils.win_color)
 	var stream_texture = load(win_panels[Utils.win_color])
 	var image_texture = ImageTexture.new()
 	var image = Image.new()
@@ -27,3 +28,11 @@ func _on_GoalHolder_game_won():
 	slide_in()
 	SoundManager.disable_sounds(false)
 	SoundManager.play_win_music(Utils.win_color)
+
+func _on_QuitButt_pressed():
+	SoundManager.disable_sounds(false)
+	SoundManager.disable_sounds(true)
+	get_tree().change_scene("res://scenes/GameMenu.tscn")
+
+func _on_Continue_pressed():
+	get_tree().reload_current_scene()

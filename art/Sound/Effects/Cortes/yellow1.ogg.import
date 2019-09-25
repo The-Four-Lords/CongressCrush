@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/yellow1.ogg-d7f19074fe634ad5cee41ff14df90020.oggstr"
+
+[deps]
+
+source_file="res://art/Sound/Effects/Cortes/yellow1.ogg"
+dest_files=[ "res://.import/yellow1.ogg-d7f19074fe634ad5cee41ff14df90020.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

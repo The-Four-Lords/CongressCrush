@@ -7,4 +7,7 @@ func _on_RestartButton_pressed():
 	get_tree().reload_current_scene()
 
 func _on_grid_game_over():
+	print("game_over")
+	SoundManager.disable_sounds(false)
+	SoundManager.play_win_music("lose")
 	slide_in()

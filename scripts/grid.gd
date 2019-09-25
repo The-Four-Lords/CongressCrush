@@ -416,9 +416,12 @@ func find_bombs():
 				#print("DEBUG - row bomb | column_matched: ", column_matched, " row_matched: " , row_matched, " current_color:",current_color)
 				make_bomb(2, current_color)
 				continue
-			elif column_matched >= 4 or row_matched >= 4:
-				SoundManager.play_random_combo_sound()
+			elif column_matched == 4 or row_matched == 4:
+				#SoundManager.play_random_combo_sound()
+				SoundManager.play_combo_sound(current_color)
 				continue
+			elif column_matched == 5 or row_matched == 5:
+				SoundManager.play_combo_sound("color")
 
 # bomb_type: 0 is adjacent, 1 is column bomb. 2 is row bomb and 3 is color bomb
 func make_bomb(bomb_type, color):
@@ -440,7 +443,8 @@ func make_bomb(bomb_type, color):
 			change_bomb(bomb_type, piece_two)
 
 func change_bomb(bomb_type, piece):
-	SoundManager.play_random_combo_sound()
+	#SoundManager.play_random_combo_sound()
+	SoundManager.play_combo_sound(piece.color)
 	if bomb_type == 0:
 		piece.make_adjacent_bomb()
 	elif bomb_type == 1:
@@ -449,6 +453,7 @@ func change_bomb(bomb_type, piece):
 		piece.make_row_bomb()
 	elif bomb_type == 3:
 		piece.make_color_bomb()
+		SoundManager.play_combo_sound("color")
 
 func destroy_matched():
 	find_bombs()
@@ -459,9 +464,7 @@ func destroy_matched():
 					setState(collapse)
 					var color = all_pieces[i][j].color
 					emit_signal("check_goal", color)
-					print("DEBUG - color:",color)
-					if (color == "blue" or color == "purple"):
-						SoundManager.play_combo_sound(color)
+					#print("DEBUG - color:",color)
 					damage_special(i, j);
 					all_pieces[i][j].queue_free()
 					all_pieces[i][j] = null

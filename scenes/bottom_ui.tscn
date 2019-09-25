@@ -63,5 +63,4 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 2 )
 text = "00"
-
 [connection signal="pressed" from="MarginContainer/HBoxContainer/Pause" to="." method="_on_Pause_pressed"]

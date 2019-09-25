@@ -8,4 +8,3 @@ color = "None"
 
 [node name="Sprite" parent="." index="0"]
 texture = ExtResource( 2 )
-

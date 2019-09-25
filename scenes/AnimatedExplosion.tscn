@@ -25,5 +25,4 @@ script = ExtResource( 1 )
 frames = SubResource( 1 )
 animation = "explode"
 frame = 3
-
 [connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]

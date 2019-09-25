@@ -47,7 +47,7 @@ margin_bottom = 128.0
 texture_normal = ExtResource( 3 )
 texture_pressed = ExtResource( 4 )
 
-[node name="TextureButton" type="TextureButton" parent="MarginContainer/TextureRect/HBoxContainer2"]
+[node name="Continue" type="TextureButton" parent="MarginContainer/TextureRect/HBoxContainer2"]
 margin_left = 223.0
 margin_right = 395.0
 margin_bottom = 128.0
@@ -56,3 +56,5 @@ texture_pressed = ExtResource( 6 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/slide_in = ExtResource( 7 )
+[connection signal="pressed" from="MarginContainer/TextureRect/HBoxContainer2/QuitButt" to="." method="_on_QuitButt_pressed"]
+[connection signal="pressed" from="MarginContainer/TextureRect/HBoxContainer2/Continue" to="." method="_on_Continue_pressed"]

@@ -42,5 +42,4 @@ texture = ExtResource( 1 )
 script = ExtResource( 2 )
 
 [node name="Timer" type="Timer" parent="."]
-
 [connection signal="timeout" from="Timer" to="DestroyParticle" method="_on_Timer_timeout"]

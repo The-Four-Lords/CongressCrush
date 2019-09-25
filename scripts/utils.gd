@@ -8,7 +8,7 @@ const GLOBAL_PIECE_VALUES_ACCORDING_LEVEL = {
 "medium" : 4,
 "hard" : 2
 }
-var global_piece_value = GLOBAL_PIECE_VALUES_ACCORDING_LEVEL["easy"] # Hard by default
+var global_piece_value = GLOBAL_PIECE_VALUES_ACCORDING_LEVEL["hard"] # Hard by default
 
 var win_color
 

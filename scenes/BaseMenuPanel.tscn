@@ -56,4 +56,3 @@ margin_bottom = 20.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/slide_in = SubResource( 1 )
-

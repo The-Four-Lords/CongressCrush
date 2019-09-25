@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/green2.ogg-52630251ff5d97e5d14d412f4f2600ed.oggstr"
+
+[deps]
+
+source_file="res://art/Sound/Effects/Cortes/green2.ogg"
+dest_files=[ "res://.import/green2.ogg-52630251ff5d97e5d14d412f4f2600ed.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

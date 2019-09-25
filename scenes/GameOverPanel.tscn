@@ -54,6 +54,5 @@ texture_pressed = ExtResource( 6 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/slide_in = ExtResource( 7 )
-
 [connection signal="pressed" from="MarginContainer/TextureRect/HBoxContainer/QuitButton" to="." method="_on_QuitButton_pressed"]
 [connection signal="pressed" from="MarginContainer/TextureRect/HBoxContainer/RestartButton" to="." method="_on_RestartButton_pressed"]

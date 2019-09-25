@@ -13,16 +13,13 @@
 [ext_resource path="res://art/ConfigurationPanel/Dictadura.png" type="Texture" id=11]
 [ext_resource path="res://art/ConfigurationPanel/Dictadura_pressed.png" type="Texture" id=12]
 
-[node name="SettingsPanel" index="0" instance=ExtResource( 1 )]
+[node name="SettingsPanel" instance=ExtResource( 1 )]
 offset = Vector2( 576, 0 )
 transform = Transform2D( 1, 0, 0, 1, 576, 0 )
 script = ExtResource( 2 )
 
 [node name="MarginContainer" parent="." index="0"]
 editor/display_folded = false
-
-[node name="GraphicAndButtons" parent="MarginContainer" index="0"]
-margin_bottom = 1194.0
 
 [node name="Graphic" parent="MarginContainer/GraphicAndButtons" index="0"]
 margin_bottom = 488.0
