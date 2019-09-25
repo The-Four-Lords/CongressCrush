@@ -31,6 +31,11 @@ var win_sounds = {
 "draw" : preload("res://art/Sound/Music/WIN/draw.ogg")
 }
 
+var combo_sounds = {
+	"blue" : preload("res://art/Sound/Effects/Cortes/blue.ogg"),
+	"purple" : preload("res://art/Sound/Effects/Cortes/purple.ogg")
+}
+
 var possible_combo_sound = [
 preload("res://art/Sound/Effects/delisioso.ogg")
 ]
@@ -56,6 +61,10 @@ func play_random_combo_sound():
 		var temp = floor(rand_range(0, possible_combo_sound.size()))
 		combo_sound_player.stream = possible_combo_sound[temp]
 		combo_sound_player.play()
+		
+func play_combo_sound(color):
+	combo_sound_player.stream = combo_sounds[color]
+	combo_sound_player.play()
 
 func play_fixed_sound(sound):
 	if sound < possible_sounds.size():

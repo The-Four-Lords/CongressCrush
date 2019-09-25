@@ -457,14 +457,18 @@ func destroy_matched():
 			if !is_piece_null(all_pieces[i][j]):
 				if all_pieces[i][j].matched:
 					setState(collapse)
-					emit_signal("check_goal", all_pieces[i][j].color)
+					var color = all_pieces[i][j].color
+					emit_signal("check_goal", color)
+					print("DEBUG - color:",color)
+					if (color == "blue" or color == "purple"):
+						SoundManager.play_combo_sound(color)
 					damage_special(i, j);
 					all_pieces[i][j].queue_free()
 					all_pieces[i][j] = null
 					make_effect(animated_explosion_effect, i, j)
 					make_effect(particle_effect, i, j)
 					emit_signal("play_sound")
-					cam_effect()
+					cam_effect()					
 					#print("DEBUG - Update Score | ", piece_value, " streak: ", streak)
 					emit_signal("update_score", piece_value * streak)
 	if state == collapse:
