@@ -10,7 +10,6 @@ preload("res://art/Sound/Music/theme-1.ogg")
 ]
 
 var possible_sounds = [
-
 preload("res://art/Sound/Effects/Match1.wav"),
 preload("res://art/Sound/Effects/Match2.wav"),
 preload("res://art/Sound/Effects/Match3.wav"),
@@ -32,25 +31,25 @@ var win_sounds = {
 }
 
 var combo_sounds = {
-	"blue1" : preload("res://art/Sound/Effects/Cortes/blue1.ogg"),
-	"blue2" : preload("res://art/Sound/Effects/Cortes/blue2.ogg"),
-	"blue3" : preload("res://art/Sound/Effects/Cortes/blue3.ogg"),
-	"purple1" : preload("res://art/Sound/Effects/Cortes/purple1.ogg"),
-	"purple2" : preload("res://art/Sound/Effects/Cortes/purple2.ogg"),
-	"purple3" : preload("res://art/Sound/Effects/Cortes/purple2.ogg"),
-	"green1" : preload("res://art/Sound/Effects/Cortes/green1.ogg"),
-	"green2" : preload("res://art/Sound/Effects/Cortes/green2.ogg"),
-	"green3" : preload("res://art/Sound/Effects/Cortes/green2.ogg"),
-	"orange1" : preload("res://art/Sound/Effects/Cortes/orange1.ogg"),
-	"orange2" : preload("res://art/Sound/Effects/Cortes/orange2.ogg"),
-	"orange3" : preload("res://art/Sound/Effects/Cortes/orange3.ogg"),
-	"red1" : preload("res://art/Sound/Effects/Cortes/red1.ogg"),
-	"red2" : preload("res://art/Sound/Effects/Cortes/red2.ogg"),
-	"red3" : preload("res://art/Sound/Effects/Cortes/red3.ogg"),
-	"yellow1" : preload("res://art/Sound/Effects/Cortes/yellow1.ogg"),
-	"yellow2" : preload("res://art/Sound/Effects/Cortes/yellow2.ogg"),
-	"yellow3" : preload("res://art/Sound/Effects/Cortes/yellow3.ogg"),
-	"color" : preload("res://art/Sound/Effects/Cortes/color.ogg")
+"blue1" : preload("res://art/Sound/Effects/Cortes/blue1.ogg"),
+"blue2" : preload("res://art/Sound/Effects/Cortes/blue2.ogg"),
+"blue3" : preload("res://art/Sound/Effects/Cortes/blue3.ogg"),
+"purple1" : preload("res://art/Sound/Effects/Cortes/purple1.ogg"),
+"purple2" : preload("res://art/Sound/Effects/Cortes/purple2.ogg"),
+"purple3" : preload("res://art/Sound/Effects/Cortes/purple2.ogg"),
+"green1" : preload("res://art/Sound/Effects/Cortes/green1.ogg"),
+"green2" : preload("res://art/Sound/Effects/Cortes/green2.ogg"),
+"green3" : preload("res://art/Sound/Effects/Cortes/green2.ogg"),
+"orange1" : preload("res://art/Sound/Effects/Cortes/orange1.ogg"),
+"orange2" : preload("res://art/Sound/Effects/Cortes/orange2.ogg"),
+"orange3" : preload("res://art/Sound/Effects/Cortes/orange3.ogg"),
+"red1" : preload("res://art/Sound/Effects/Cortes/red1.ogg"),
+"red2" : preload("res://art/Sound/Effects/Cortes/red2.ogg"),
+"red3" : preload("res://art/Sound/Effects/Cortes/red3.ogg"),
+"yellow1" : preload("res://art/Sound/Effects/Cortes/yellow1.ogg"),
+"yellow2" : preload("res://art/Sound/Effects/Cortes/yellow2.ogg"),
+"yellow3" : preload("res://art/Sound/Effects/Cortes/yellow3.ogg"),
+"color" : preload("res://art/Sound/Effects/Cortes/color.ogg")
 }
 
 var possible_combo_sound = [
