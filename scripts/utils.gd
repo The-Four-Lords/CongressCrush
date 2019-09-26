@@ -10,6 +10,8 @@ const GLOBAL_PIECE_VALUES_ACCORDING_LEVEL = {
 }
 var global_piece_value = GLOBAL_PIECE_VALUES_ACCORDING_LEVEL["hard"] # Hard by default
 
+var GAME_ALREADY_END = false;
+
 var win_color
 
 var empty_spaces_dictionary = [

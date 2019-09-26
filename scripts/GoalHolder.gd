@@ -35,7 +35,9 @@ func global_goal_met():
 
 func check_game_win():
 	if global_goal_met():
-		emit_signal("game_won")
+		if !Utils.GAME_ALREADY_END: 
+			Utils.GAME_ALREADY_END = true
+			emit_signal("game_won")
 	#if goals_met():
 		#emit_signal("game_won")
 

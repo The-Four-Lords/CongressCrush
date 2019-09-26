@@ -50,10 +50,10 @@ var firstTurn
 # The piece array
 var possible_pieces = [
 preload("res://scenes/Piece/cs_piece.tscn"),
-preload("res://scenes/Piece/erc_piece.tscn"),
-preload("res://scenes/Piece/podemos_piece.tscn"),
-preload("res://scenes/Piece/pp_piece.tscn"),
-preload("res://scenes/Piece/psoe_piece.tscn"),
+#preload("res://scenes/Piece/erc_piece.tscn"),
+#preload("res://scenes/Piece/podemos_piece.tscn"),
+#preload("res://scenes/Piece/pp_piece.tscn"),
+#preload("res://scenes/Piece/psoe_piece.tscn"),
 preload("res://scenes/Piece/vox_piece.tscn")
 ]
 
@@ -131,44 +131,45 @@ func make_2d_array():
 	return array
 
 func spawn_pieces():
-	sinkers_logic()
-	var found = false
-	randomize()
-	for i in width:
-		for j in height:
-			if is_piece_null(all_pieces[i][j]):
-				# Check non spawneable spots
-				if !restricted_fill(Vector2(i, j)):
-					setState(wait)
-					# Choose a random number and store it
-					var rand = floor(rand_range(0, possible_pieces.size()))
-					# Instance that piece from the array
-					var piece = possible_pieces[rand].instance()
-					var loops = 0
-					while (match_at(i, j, piece.color) && loops < 100):
-						rand = floor(rand_range(0, possible_pieces.size()))
-						loops += 1
-						piece = possible_pieces[rand].instance()
-					add_child(piece)
-					piece.position = grid_to_pixel(i, j + y_offset)
-					piece.move(grid_to_pixel(i, j))
-					all_pieces[i][j] = piece
-					found = find_matches()
-	if !found:
-		# At the end of the combo check if slimes has been damaged, if not, create a new one
-		if !damaged_slime and !firstTurn:
-			generate_slime()
-		damaged_slime = false
-		if is_counter_in_moves and !firstTurn:
-			current_counter_value -= 1 
-			emit_signal("update_counter")
-		if current_counter_value == 0:
-			declare_game_over()
-		elif is_deadlocked():
-			$regenerate_board.start()
-		else: setState(move)
-	else:
-		streak += 1
+	if !Utils.GAME_ALREADY_END:
+		sinkers_logic()
+		var found = false
+		randomize()
+		for i in width:
+			for j in height:
+				if is_piece_null(all_pieces[i][j]):
+					# Check non spawneable spots
+					if !restricted_fill(Vector2(i, j)):
+						setState(wait)
+						# Choose a random number and store it
+						var rand = floor(rand_range(0, possible_pieces.size()))
+						# Instance that piece from the array
+						var piece = possible_pieces[rand].instance()
+						var loops = 0
+						while (match_at(i, j, piece.color) && loops < 100):
+							rand = floor(rand_range(0, possible_pieces.size()))
+							loops += 1
+							piece = possible_pieces[rand].instance()
+						add_child(piece)
+						piece.position = grid_to_pixel(i, j + y_offset)
+						piece.move(grid_to_pixel(i, j))
+						all_pieces[i][j] = piece
+						found = find_matches()
+		if !found:
+			# At the end of the combo check if slimes has been damaged, if not, create a new one
+			if !damaged_slime and !firstTurn:
+				generate_slime()
+			damaged_slime = false
+			if is_counter_in_moves and !firstTurn:
+				current_counter_value -= 1 
+				emit_signal("update_counter")
+			if current_counter_value == 0:
+				declare_game_over()
+			elif is_deadlocked():
+				$regenerate_board.start()
+			else: setState(move)
+		else:
+			streak += 1
 
 func is_piece_sinker(piece):
 	return !is_piece_null(piece) and piece.color == "None"
@@ -678,6 +679,7 @@ func sinkers_logic():
 
 func declare_game_over():
 	emit_signal("game_over")
+	Utils.GAME_ALREADY_END = true
 	setState(wait)
 
 func switch_pieces(place, direction, array):
@@ -718,6 +720,7 @@ func regenerate_board():
 	start_spawn()
 	
 func init_game(regeneration = false):
+	Utils.GAME_ALREADY_END = false
 	SoundManager.disable_sounds(false)
 	SoundManager.disable_sounds(true)
 	move_camera()
