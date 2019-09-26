@@ -30,9 +30,11 @@ func _on_GoalHolder_game_won():
 	SoundManager.play_win_music(Utils.win_color)
 
 func _on_QuitButt_pressed():
-	SoundManager.disable_sounds(false)
+	#SoundManager.disable_sounds(false)
 	SoundManager.disable_sounds(true)
+	SoundManager.stop_win_music_player()
 	get_tree().change_scene("res://scenes/GameMenu.tscn")
 
 func _on_Continue_pressed():
+	SoundManager.stop_win_music_player()
 	get_tree().reload_current_scene()

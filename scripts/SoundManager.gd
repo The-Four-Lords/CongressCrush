@@ -104,13 +104,19 @@ func play_win_music(win_color):
 func stop_music_player():
 	music_player.stop()
 
+func stop_win_music_player():
+	win_player.stream = null
+	win_player.stop()
+
 func disable_sounds(enable):
 	if enable:
 		music_player.play()
+		win_player.play()
 		sound_player.volume_db = -20
 		combo_sound_player.volume_db = -5
 	else:
 		win_player.stop()
 		music_player.stop()
+		win_player.stop()
 		sound_player.volume_db = -80
 		combo_sound_player.volume_db = -80
