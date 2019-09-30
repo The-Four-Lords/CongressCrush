@@ -1,10 +1,16 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://art/Bottom UI v 3.png" type="Texture" id=1]
 [ext_resource path="res://scripts/bottom_ui.gd" type="Script" id=2]
-[ext_resource path="res://art/UI/Buttons/Pause Button.png" type="Texture" id=3]
-[ext_resource path="res://art/UI/Buttons/Pause Button_pressed.png" type="Texture" id=4]
-[ext_resource path="res://art/UI/Buttons/Button Template Orange.png" type="Texture" id=5]
+[ext_resource path="res://art/UI/Buttons/Pause.png" type="Texture" id=3]
+[ext_resource path="res://art/UI/Buttons/Pause_Pressed.png" type="Texture" id=4]
+[ext_resource path="res://art/UI/Buttons/Reset.png" type="Texture" id=5]
+[ext_resource path="res://art/UI/Buttons/Reset_Pressed.png" type="Texture" id=6]
+[ext_resource path="res://art/UI/Buttons/Button Template Orange.png" type="Texture" id=7]
+[ext_resource path="res://art/UI/Buttons/Sound_On.png" type="Texture" id=8]
+[ext_resource path="res://art/UI/Buttons/Sound_Off.png" type="Texture" id=9]
+[ext_resource path="res://art/UI/Buttons/Music_On.png" type="Texture" id=10]
+[ext_resource path="res://art/UI/Buttons/Music_Off.png" type="Texture" id=11]
 
 [sub_resource type="DynamicFontData" id=1]
 font_path = "res://art/Fonts/Kenney Blocks.ttf"
@@ -21,9 +27,10 @@ texture = ExtResource( 1 )
 script = ExtResource( 2 )
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
-margin_left = 20.0
-margin_right = 557.0
-margin_bottom = 64.0
+margin_left = 8.25
+margin_right = 825.67
+margin_bottom = 102.13
+rect_scale = Vector2( 0.68, 0.68 )
 custom_constants/margin_right = 0
 custom_constants/margin_top = -60
 custom_constants/margin_left = 0
@@ -31,36 +38,74 @@ custom_constants/margin_bottom = 0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 margin_top = -60.0
-margin_right = 537.0
-margin_bottom = 64.0
-custom_constants/separation = 36
+margin_right = 817.0
+margin_bottom = 102.0
+custom_constants/separation = 96
 alignment = 1
 
-[node name="Pause" type="TextureButton" parent="MarginContainer/HBoxContainer"]
-margin_right = 100.0
-margin_bottom = 124.0
-rect_min_size = Vector2( 100, 100 )
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer"]
+margin_left = 13.0
+margin_top = 72.0
+margin_right = 260.0
+margin_bottom = 162.0
+size_flags_horizontal = 8
+size_flags_vertical = 8
+size_flags_stretch_ratio = 0.0
+custom_constants/separation = 15
+
+[node name="Pause" type="TextureButton" parent="MarginContainer/HBoxContainer/HBoxContainer"]
+margin_right = 116.0
+margin_bottom = 90.0
 texture_normal = ExtResource( 3 )
 texture_pressed = ExtResource( 4 )
-expand = true
-stretch_mode = 3
+
+[node name="Reset" type="TextureButton" parent="MarginContainer/HBoxContainer/HBoxContainer"]
+margin_left = 131.0
+margin_right = 247.0
+margin_bottom = 90.0
+texture_normal = ExtResource( 5 )
+texture_pressed = ExtResource( 6 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
-margin_left = 136.0
-margin_right = 537.0
-margin_bottom = 124.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
+editor/display_folded = true
+margin_left = 356.0
+margin_right = 460.0
+margin_bottom = 106.0
+size_flags_horizontal = 8
+size_flags_vertical = 0
 
 [node name="Sprite" type="Sprite" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 position = Vector2( 50.7736, 65.0536 )
-texture = ExtResource( 5 )
+texture = ExtResource( 7 )
 
 [node name="CounterLabel" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-margin_right = 401.0
-margin_bottom = 124.0
+margin_right = 104.0
+margin_bottom = 106.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 2 )
 text = "00"
-[connection signal="pressed" from="MarginContainer/HBoxContainer/Pause" to="." method="_on_Pause_pressed"]
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/HBoxContainer"]
+margin_left = 556.0
+margin_top = 72.0
+margin_right = 804.0
+margin_bottom = 162.0
+size_flags_horizontal = 0
+size_flags_vertical = 8
+custom_constants/separation = 15
+
+[node name="TextureButton2" type="TextureButton" parent="MarginContainer/HBoxContainer/HBoxContainer2"]
+margin_right = 116.0
+margin_bottom = 90.0
+texture_normal = ExtResource( 8 )
+texture_disabled = ExtResource( 9 )
+
+[node name="TextureButton3" type="TextureButton" parent="MarginContainer/HBoxContainer/HBoxContainer2"]
+margin_left = 131.0
+margin_right = 248.0
+margin_bottom = 90.0
+texture_normal = ExtResource( 10 )
+texture_disabled = ExtResource( 11 )
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/HBoxContainer/Pause" to="." method="_on_Pause_pressed"]
