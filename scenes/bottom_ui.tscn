@@ -28,9 +28,8 @@ script = ExtResource( 2 )
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 margin_left = 8.25
-margin_right = 825.67
-margin_bottom = 102.13
-rect_scale = Vector2( 0.68, 0.68 )
+margin_right = 567.37
+margin_bottom = 71.19
 custom_constants/margin_right = 0
 custom_constants/margin_top = -60
 custom_constants/margin_left = 0
@@ -38,38 +37,38 @@ custom_constants/margin_bottom = 0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 margin_top = -60.0
-margin_right = 817.0
-margin_bottom = 102.0
-custom_constants/separation = 96
+margin_right = 559.0
+margin_bottom = 71.0
+custom_constants/separation = 49
 alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer"]
-margin_left = 13.0
-margin_top = 72.0
-margin_right = 260.0
-margin_bottom = 162.0
+margin_left = 5.0
+margin_top = 69.0
+margin_right = 178.0
+margin_bottom = 131.0
 size_flags_horizontal = 8
 size_flags_vertical = 8
 size_flags_stretch_ratio = 0.0
 custom_constants/separation = 15
 
 [node name="Pause" type="TextureButton" parent="MarginContainer/HBoxContainer/HBoxContainer"]
-margin_right = 116.0
-margin_bottom = 90.0
+margin_right = 79.0
+margin_bottom = 62.0
 texture_normal = ExtResource( 3 )
 texture_pressed = ExtResource( 4 )
 
 [node name="Reset" type="TextureButton" parent="MarginContainer/HBoxContainer/HBoxContainer"]
-margin_left = 131.0
-margin_right = 247.0
-margin_bottom = 90.0
+margin_left = 94.0
+margin_right = 173.0
+margin_bottom = 62.0
 texture_normal = ExtResource( 5 )
 texture_pressed = ExtResource( 6 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
 editor/display_folded = true
-margin_left = 356.0
-margin_right = 460.0
+margin_left = 227.0
+margin_right = 331.0
 margin_bottom = 106.0
 size_flags_horizontal = 8
 size_flags_vertical = 0
@@ -87,24 +86,24 @@ custom_fonts/font = SubResource( 2 )
 text = "00"
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/HBoxContainer"]
-margin_left = 556.0
-margin_top = 72.0
-margin_right = 804.0
-margin_bottom = 162.0
+margin_left = 380.0
+margin_top = 69.0
+margin_right = 554.0
+margin_bottom = 131.0
 size_flags_horizontal = 0
 size_flags_vertical = 8
 custom_constants/separation = 15
 
 [node name="TextureButton2" type="TextureButton" parent="MarginContainer/HBoxContainer/HBoxContainer2"]
-margin_right = 116.0
-margin_bottom = 90.0
+margin_right = 80.0
+margin_bottom = 62.0
 texture_normal = ExtResource( 8 )
 texture_disabled = ExtResource( 9 )
 
 [node name="TextureButton3" type="TextureButton" parent="MarginContainer/HBoxContainer/HBoxContainer2"]
-margin_left = 131.0
-margin_right = 248.0
-margin_bottom = 90.0
+margin_left = 95.0
+margin_right = 174.0
+margin_bottom = 62.0
 texture_normal = ExtResource( 10 )
 texture_disabled = ExtResource( 11 )
 
