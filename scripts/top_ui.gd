@@ -18,8 +18,8 @@ func _on_grid_update_score(new_value):
 	score_label.text = String("%.2f" % current_score) + '%'
 	update_score_bar()
 
-func _on_grid_update_counter(new_value = -1):
-	current_counter += new_value
+func _on_grid_update_counter(new_value = -1):	
+	current_counter += new_value	
 	counter_label.text = String(current_counter)
 	
 func setup_score_bar(max_score):

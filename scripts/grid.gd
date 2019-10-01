@@ -832,7 +832,7 @@ func _on_slime_holder_remove_slime(place):
 func _on_Timer_timeout():
 	if !is_counter_in_moves and current_counter_value > 0 and state != win:
 		current_counter_value -= 1
-		emit_signal("update_counter")
+		emit_signal("update_counter")		
 		if current_counter_value <= 0:
 			declare_game_over()
 			$game_time.stop()

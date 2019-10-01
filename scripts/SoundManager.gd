@@ -80,7 +80,7 @@ func play_random_combo_sound():
 		combo_sound_player.play()
 		
 func play_combo_sound(color):
-	print("color:",color)
+	#print("DEBUG - color:",color)
 	if (color == "color"):
 		combo_sound_player.stream = combo_sounds[color]
 		combo_sound_player.play()
@@ -96,7 +96,7 @@ func play_fixed_sound(sound):
 		sound_player.play()
 
 func play_win_music(win_color):
-	print("DEBUG sound win_color:",win_color)
+	#print("DEBUG sound win_color:",win_color)
 	win_player.stream = win_sounds[win_color]
 	win_player.play()
 

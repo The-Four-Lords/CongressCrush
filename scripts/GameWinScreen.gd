@@ -17,7 +17,7 @@ func _on_ContinueButton_pressed():
 	get_tree().reload_current_scene()
 
 func _on_GoalHolder_game_won():
-	print("DEBUG panel_color:",Utils.win_color)
+	#print("DEBUG panel_color:",Utils.win_color)
 	var stream_texture = load(win_panels[Utils.win_color])
 	var image_texture = ImageTexture.new()
 	var image = Image.new()

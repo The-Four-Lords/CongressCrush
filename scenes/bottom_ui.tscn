@@ -66,7 +66,6 @@ texture_normal = ExtResource( 5 )
 texture_pressed = ExtResource( 6 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
-editor/display_folded = true
 margin_left = 227.0
 margin_right = 331.0
 margin_bottom = 106.0
@@ -106,5 +105,4 @@ margin_right = 174.0
 margin_bottom = 62.0
 texture_normal = ExtResource( 10 )
 texture_disabled = ExtResource( 11 )
-
 [connection signal="pressed" from="MarginContainer/HBoxContainer/HBoxContainer/Pause" to="." method="_on_Pause_pressed"]
