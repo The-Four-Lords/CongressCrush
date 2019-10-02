@@ -8,9 +8,9 @@
 [ext_resource path="res://art/UI/Buttons/Reset_Pressed.png" type="Texture" id=6]
 [ext_resource path="res://art/UI/Buttons/Button Template Orange.png" type="Texture" id=7]
 [ext_resource path="res://art/UI/Buttons/Sound_On.png" type="Texture" id=8]
-[ext_resource path="res://art/UI/Buttons/Sound_Off.png" type="Texture" id=9]
+[ext_resource path="res://art/UI/Buttons/Sound_Off_Pressed.png" type="Texture" id=9]
 [ext_resource path="res://art/UI/Buttons/Music_On.png" type="Texture" id=10]
-[ext_resource path="res://art/UI/Buttons/Music_Off.png" type="Texture" id=11]
+[ext_resource path="res://art/UI/Buttons/Music_Off_Pressed.png" type="Texture" id=11]
 
 [sub_resource type="DynamicFontData" id=1]
 font_path = "res://art/Fonts/Kenney Blocks.ttf"
@@ -96,13 +96,18 @@ custom_constants/separation = 15
 [node name="TextureButton2" type="TextureButton" parent="MarginContainer/HBoxContainer/HBoxContainer2"]
 margin_right = 80.0
 margin_bottom = 62.0
+toggle_mode = true
 texture_normal = ExtResource( 8 )
-texture_disabled = ExtResource( 9 )
+texture_pressed = ExtResource( 9 )
 
 [node name="TextureButton3" type="TextureButton" parent="MarginContainer/HBoxContainer/HBoxContainer2"]
 margin_left = 95.0
 margin_right = 174.0
 margin_bottom = 62.0
+toggle_mode = true
 texture_normal = ExtResource( 10 )
-texture_disabled = ExtResource( 11 )
+texture_pressed = ExtResource( 11 )
 [connection signal="pressed" from="MarginContainer/HBoxContainer/HBoxContainer/Pause" to="." method="_on_Pause_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/HBoxContainer/Reset" to="." method="_on_Reset_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/HBoxContainer2/TextureButton2" to="." method="_on_TextureButton2_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/HBoxContainer2/TextureButton3" to="." method="_on_TextureButton3_pressed"]

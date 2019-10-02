@@ -5,6 +5,12 @@ onready var sound_player = $SoundPlayer
 onready var combo_sound_player = $ComboSoundPlayer
 onready var win_player = $WinPlayer
 
+var MUSIC_LEVEL = -15
+var EFFECTS_LEVEL = -10
+var COMBO_LEVEL = 5
+var WIN_LEVEL = -10
+var MUTE = -100
+
 var possible_music = [
 preload("res://art/Sound/Music/theme-1.ogg")
 ]
@@ -90,6 +96,9 @@ func play_combo_sound(color):
 	combo_sound_player.stream = combo_sounds[sound]
 	combo_sound_player.play()
 
+func stop_combo_sound():
+	combo_sound_player.stop()
+
 func play_fixed_sound(sound):
 	if sound < possible_sounds.size():
 		sound_player.stream = possible_sounds[sound]
@@ -103,6 +112,22 @@ func play_win_music(win_color):
 func stop_music_player():
 	music_player.stop()
 
+func activate_music(activate):
+	if (activate):
+		music_player.set_volume_db(MUSIC_LEVEL)
+	else:
+		music_player.set_volume_db(MUTE)
+
+func activate_effects(activate):
+	if (activate):
+		combo_sound_player.set_volume_db(COMBO_LEVEL)
+		sound_player.set_volume_db(EFFECTS_LEVEL)
+		win_player.set_volume_db(WIN_LEVEL)
+	else:
+		combo_sound_player.set_volume_db(MUTE)
+		sound_player.set_volume_db(MUTE)
+		win_player.set_volume_db(MUTE)
+
 func stop_win_music_player():
 	win_player.stream = null
 	win_player.stop()
@@ -111,8 +136,10 @@ func disable_sounds(enable):
 	if enable:
 		music_player.play()
 		win_player.play()
-		sound_player.volume_db = -20
-		combo_sound_player.volume_db = -5
+		sound_player.volume_db = EFFECTS_LEVEL
+		combo_sound_player.volume_db = COMBO_LEVEL
+		activate_effects(enable)
+		activate_music(enable)
 	else:
 		win_player.stop()
 		music_player.stop()
