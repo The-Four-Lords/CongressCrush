@@ -29,8 +29,6 @@ func global_goal_met():
 	#print("\n")
 	for i in get_child_count():
 		num_seats += get_child(i).number_collected
-		#print("El partido ", get_child(i).goal_target, " tiene ", get_child(i).number_collected, " escanos.")
-	#print("Total de escanos: ", num_seats)
 	return num_seats >= Utils.MAX_NUMBER_SEATS
 
 func check_game_win():
@@ -38,8 +36,6 @@ func check_game_win():
 		if !Utils.GAME_ALREADY_END: 
 			Utils.GAME_ALREADY_END = true
 			emit_signal("game_won")
-	#if goals_met():
-		#emit_signal("game_won")
 
 func _on_grid_check_goal(goal_type):
 	check_goals(goal_type)

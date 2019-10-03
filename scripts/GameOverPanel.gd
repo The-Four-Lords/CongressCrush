@@ -12,4 +12,5 @@ func _on_grid_game_over():
 	print("game_over")
 	SoundManager.disable_sounds(false)
 	SoundManager.play_win_music("lose")
+	SoundManager.remove_combo_audio()
 	slide_in()

@@ -136,8 +136,6 @@ func disable_sounds(enable):
 	if enable:
 		music_player.play()
 		win_player.play()
-		sound_player.volume_db = EFFECTS_LEVEL
-		combo_sound_player.volume_db = COMBO_LEVEL
 		activate_effects(enable)
 		activate_music(enable)
 	else:
@@ -146,3 +144,6 @@ func disable_sounds(enable):
 		win_player.stop()
 		sound_player.volume_db = -80
 		combo_sound_player.volume_db = -80
+
+func remove_combo_audio():
+	combo_sound_player.stream = null

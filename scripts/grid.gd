@@ -383,12 +383,14 @@ func turn_matched(piece):
 
 func find_bombs():
 	#print("DEBUG - color_bomb_used:",color_bomb_used)
+	var four_bombs_found = false
+	var current_color 
 	if !color_bomb_used:
 		# Iterate over the current matches array
 		for i in current_matches.size():
 			var current_column = current_matches[i].x
 			var current_row = current_matches[i].y
-			var current_color = all_pieces[current_column][current_row].color
+			current_color = all_pieces[current_column][current_row].color
 			var column_matched = 0
 			var row_matched = 0
 			for j in current_matches.size():
@@ -406,23 +408,29 @@ func find_bombs():
 			elif column_matched >= COLUMN_ADJACENT_BOMB and row_matched >= ROW_ADJACENT_BOMB:
 				#print("DEBUG - adjacent bomb | column_matched: ", column_matched, " row_matched: " , row_matched, " current_color:",current_color)
 				make_bomb(0, current_color)
+				emit_signal("check_goal", current_color)
 				continue
 			# In row matched make column bomb
 			elif row_matched == ROW_BOMB:
 				#print("DEBUG - column bomb | column_matched: ", column_matched, " row_matched: " , row_matched, " current_color:",current_color)
 				make_bomb(1, current_color)
+				four_bombs_found = true
 				continue
 			# In column matched make row bombs
 			elif column_matched == COLUMN_BOMB:
 				#print("DEBUG - row bomb | column_matched: ", column_matched, " row_matched: " , row_matched, " current_color:",current_color)
 				make_bomb(2, current_color)
+				four_bombs_found = true
 				continue
 			elif column_matched == 4 or row_matched == 4:
 				#SoundManager.play_random_combo_sound()
 				SoundManager.play_combo_sound(current_color)
+				emit_signal("check_goal", current_color)
 				continue
 			elif column_matched == 5 or row_matched == 5:
 				SoundManager.play_combo_sound("color")
+	if (four_bombs_found):
+		emit_signal("check_goal", current_color)
 
 # bomb_type: 0 is adjacent, 1 is column bomb. 2 is row bomb and 3 is color bomb
 func make_bomb(bomb_type, color):
@@ -434,14 +442,15 @@ func make_bomb(bomb_type, color):
 		var current_row = current_matches[i].y
 		if all_pieces[current_column][current_row] == piece_one and piece_one.color == color:
 			damage_special(current_column, current_row)
-			emit_signal("check_goal", piece_one.color)
+			#emit_signal("check_goal", piece_one.color)
 			piece_one.matched = false
 			change_bomb(bomb_type, piece_one)
 		if all_pieces[current_column][current_row] == piece_two and piece_two.color == color:
 			damage_special(current_column, current_row)
-			emit_signal("check_goal", piece_two.color)
+			#emit_signal("check_goal", piece_two.color)
 			piece_two.matched = false
 			change_bomb(bomb_type, piece_two)
+	#emit_signal("check_goal", piece_one.color)
 
 func change_bomb(bomb_type, piece):
 	#SoundManager.play_random_combo_sound()
