@@ -1,12 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scripts/GameWinScreen.gd" type="Script" id=1]
-[ext_resource path="res://art/UI/Panels/WinPanels/PSOE_WIN.png" type="Texture" id=2]
-[ext_resource path="res://art/UI/Buttons/Quit Button.png" type="Texture" id=3]
-[ext_resource path="res://art/UI/Buttons/Quit Button_Pressed.png" type="Texture" id=4]
-[ext_resource path="res://art/UI/Buttons/Continue Button.png" type="Texture" id=5]
-[ext_resource path="res://art/UI/Buttons/Continue Button_pressed.png" type="Texture" id=6]
-[ext_resource path="res://animations/slide_in.tres" type="Animation" id=7]
+[ext_resource path="res://art/UI/Buttons/Quit Button.png" type="Texture" id=2]
+[ext_resource path="res://art/UI/Buttons/Quit Button_Pressed.png" type="Texture" id=3]
+[ext_resource path="res://art/UI/Buttons/Continue Button.png" type="Texture" id=4]
+[ext_resource path="res://art/UI/Buttons/Continue Button_pressed.png" type="Texture" id=5]
+[ext_resource path="res://animations/slide_in.tres" type="Animation" id=6]
 
 [node name="GameWinScreen" type="CanvasLayer"]
 offset = Vector2( 576, 0 )
@@ -30,7 +29,6 @@ margin_left = 40.0
 margin_top = 256.0
 margin_right = 632.0
 margin_bottom = 1331.0
-texture = ExtResource( 2 )
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/TextureRect"]
 margin_left = 55.2924
@@ -44,17 +42,17 @@ alignment = 1
 margin_left = 25.0
 margin_right = 195.0
 margin_bottom = 128.0
-texture_normal = ExtResource( 3 )
-texture_pressed = ExtResource( 4 )
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 3 )
 
 [node name="Continue" type="TextureButton" parent="MarginContainer/TextureRect/HBoxContainer2"]
 margin_left = 223.0
 margin_right = 395.0
 margin_bottom = 128.0
-texture_normal = ExtResource( 5 )
-texture_pressed = ExtResource( 6 )
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 5 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/slide_in = ExtResource( 7 )
+anims/slide_in = ExtResource( 6 )
 [connection signal="pressed" from="MarginContainer/TextureRect/HBoxContainer2/QuitButt" to="." method="_on_QuitButt_pressed"]
 [connection signal="pressed" from="MarginContainer/TextureRect/HBoxContainer2/Continue" to="." method="_on_Continue_pressed"]
