@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Continue Button Game Win.png-4a213e09c498a66a52b1980d56454229.stex"
+path="res://.import/Quit_Button.png-6bdbd0aecabddb35b6624d8058761826.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/UI/Buttons/Continue Button Game Win.png"
-dest_files=[ "res://.import/Continue Button Game Win.png-4a213e09c498a66a52b1980d56454229.stex" ]
+source_file="res://art/UI/Buttons/Quit_Button.png"
+dest_files=[ "res://.import/Quit_Button.png-6bdbd0aecabddb35b6624d8058761826.stex" ]
 
 [params]
 

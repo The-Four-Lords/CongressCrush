@@ -2,10 +2,10 @@
 
 [ext_resource path="res://scripts/PauseScreen.gd" type="Script" id=1]
 [ext_resource path="res://art/UI/Panels/Pause Panel.png" type="Texture" id=2]
-[ext_resource path="res://art/UI/Buttons/Quit Button.png" type="Texture" id=3]
-[ext_resource path="res://art/UI/Buttons/Quit Button_Pressed.png" type="Texture" id=4]
-[ext_resource path="res://art/UI/Buttons/Continue Button.png" type="Texture" id=5]
-[ext_resource path="res://art/UI/Buttons/Continue Button_pressed.png" type="Texture" id=6]
+[ext_resource path="res://art/UI/Buttons/Quit_Button.png" type="Texture" id=3]
+[ext_resource path="res://art/UI/Buttons/Quit_Button_Pressed.png" type="Texture" id=4]
+[ext_resource path="res://art/UI/Buttons/Continue_Button.png" type="Texture" id=5]
+[ext_resource path="res://art/UI/Buttons/Continue_Button_pressed.png" type="Texture" id=6]
 [ext_resource path="res://animations/slide_in.tres" type="Animation" id=7]
 
 [node name="PauseScreen" type="CanvasLayer"]

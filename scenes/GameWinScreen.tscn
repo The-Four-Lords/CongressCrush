@@ -1,10 +1,10 @@
 [gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scripts/GameWinScreen.gd" type="Script" id=1]
-[ext_resource path="res://art/UI/Buttons/Quit Button.png" type="Texture" id=2]
-[ext_resource path="res://art/UI/Buttons/Quit Button_Pressed.png" type="Texture" id=3]
-[ext_resource path="res://art/UI/Buttons/Continue Button.png" type="Texture" id=4]
-[ext_resource path="res://art/UI/Buttons/Continue Button_pressed.png" type="Texture" id=5]
+[ext_resource path="res://art/UI/Buttons/Menu_Button.png" type="Texture" id=2]
+[ext_resource path="res://art/UI/Buttons/Menu_Button_Pressed - copia (1).png" type="Texture" id=3]
+[ext_resource path="res://art/UI/Buttons/Restart_Button.png" type="Texture" id=4]
+[ext_resource path="res://art/UI/Buttons/Restart_Button_Pressed.png" type="Texture" id=5]
 [ext_resource path="res://animations/slide_in.tres" type="Animation" id=6]
 
 [node name="GameWinScreen" type="CanvasLayer"]

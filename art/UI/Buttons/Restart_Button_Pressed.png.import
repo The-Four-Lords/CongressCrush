@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Continue Button_pressed.png-f399fefc4ab6327e880c3c779528af0d.stex"
+path="res://.import/Restart_Button_Pressed.png-fec23864f301a27564bdfbe6c04a73cd.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/UI/Buttons/Continue Button_pressed.png"
-dest_files=[ "res://.import/Continue Button_pressed.png-f399fefc4ab6327e880c3c779528af0d.stex" ]
+source_file="res://art/UI/Buttons/Restart_Button_Pressed.png"
+dest_files=[ "res://.import/Restart_Button_Pressed.png-fec23864f301a27564bdfbe6c04a73cd.stex" ]
 
 [params]
 
