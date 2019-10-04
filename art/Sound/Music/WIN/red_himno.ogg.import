@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/red_himno.ogg-1e0ac75fc6d5524545ab6bc592218a71.oggstr"
+
+[deps]
+
+source_file="res://art/Sound/Music/WIN/red_himno.ogg"
+dest_files=[ "res://.import/red_himno.ogg-1e0ac75fc6d5524545ab6bc592218a71.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
