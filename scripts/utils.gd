@@ -12,6 +12,8 @@ var global_piece_value = GLOBAL_PIECE_VALUES_ACCORDING_LEVEL["hard"] # Hard by d
 
 var GAME_ALREADY_END = false;
 
+var CURRENT_SEAT_COUNT = 0;
+
 var win_color
 
 var empty_spaces_dictionary = [

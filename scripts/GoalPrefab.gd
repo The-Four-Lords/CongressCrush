@@ -18,5 +18,8 @@ func set_goal_values(goal):
 func update_goal_values(goal_type):
 	if goal_type == goal_target:
 		current_number += Utils.global_piece_value
-		if current_number <= max_value:
+		Utils.CURRENT_SEAT_COUNT += Utils.global_piece_value
+		if Utils.CURRENT_SEAT_COUNT <= Utils.MAX_NUMBER_SEATS:
 			goal_score.text = String(current_number)
+		else:
+			goal_score.text = String(current_number + (Utils.MAX_NUMBER_SEATS - Utils.CURRENT_SEAT_COUNT))

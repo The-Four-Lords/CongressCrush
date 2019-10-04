@@ -56,9 +56,11 @@ func _on_GoalHolder_create_goal(goal):
 	make_goal(goal)
 
 func _on_grid_check_goal(goal_type):
-	for i in goal_container.get_child_count():
-		goal_container.get_child(i).update_goal_values(goal_type)
-	
+	if !Utils.GAME_ALREADY_END:
+		for i in goal_container.get_child_count():
+			goal_container.get_child(i).update_goal_values(goal_type)
+			print("The: ", goal_type, goal_container.get_child(i).current_number)
+		
 	reorganize_seats()
 
 func reorganize_seats():

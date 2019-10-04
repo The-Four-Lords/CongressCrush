@@ -36,6 +36,7 @@ func check_game_win():
 		if !Utils.GAME_ALREADY_END: 
 			Utils.GAME_ALREADY_END = true
 			emit_signal("game_won")
+			print("==== WIN ====")
 
 func _on_grid_check_goal(goal_type):
 	check_goals(goal_type)
