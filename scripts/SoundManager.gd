@@ -118,7 +118,7 @@ func play_combo_sound(color):
 	var list_size = sounds_list.size()
 	var sound_index = floor (rand_range(0, list_size))
 	var sound = sounds_list[sound_index]
-	print("DEBUG - color:", color, " list_size:", list_size, " sound_index:", sound_index, " sound:", sound)
+	#print("DEBUG - color:", color, " list_size:", list_size, " sound_index:", sound_index, " sound:", sound)
 	combo_sound_player.stream = sound
 	combo_sound_player.play()
 
