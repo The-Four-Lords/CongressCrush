@@ -56,7 +56,7 @@ y_offset = 2
 hint_effect = ExtResource( 7 )
 piece_value = 10
 max_score = 350
-current_counter_value = 99
+current_counter_value = 3
 sinker_piece = ExtResource( 8 )
 
 [node name="game_time" type="Timer" parent="grid"]
@@ -150,6 +150,7 @@ goal_target = "purple"
 
 [node name="MusicPlayer" type="Node" parent="."]
 script = ExtResource( 24 )
+
 [connection signal="pause_game" from="CanvasLayer/bottom_ui" to="PauseScreen" method="_on_bottom_ui_pause_game"]
 [connection signal="camera_effect" from="grid" to="Camera2D" method="_on_grid_camera_effect"]
 [connection signal="check_goal" from="grid" to="GoalHolder" method="_on_grid_check_goal"]
