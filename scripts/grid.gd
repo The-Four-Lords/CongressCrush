@@ -688,7 +688,7 @@ func sinkers_logic():
 
 func declare_game_over():
 	emit_signal("game_over")
-	print("==== Game Over ====")
+	#print("==== Game Over ====")
 	Utils.GAME_ALREADY_END = true
 	setState(wait)
 
