@@ -730,6 +730,7 @@ func regenerate_board():
 	start_spawn()
 	
 func init_game(regeneration = false):
+	Utils.CURRENT_SEAT_COUNT = 0
 	Utils.GAME_ALREADY_END = false
 	SoundManager.disable_sounds(false)
 	SoundManager.disable_sounds(true)
