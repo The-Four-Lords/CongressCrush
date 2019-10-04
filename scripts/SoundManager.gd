@@ -29,7 +29,7 @@ preload("res://art/Sound/Effects/Match7.wav")
 var win_sounds = {
 "blue" : preload("res://art/Sound/Music/WIN/blue.ogg"),
 "red" : preload("res://art/Sound/Music/WIN/red.ogg"),
-"green" : preload("res://art/Sound/Music/WIN/green_.ogg"),
+"green" : preload("res://art/Sound/Music/WIN/green.ogg"),
 "orange" : preload("res://art/Sound/Music/WIN/orange.ogg"),
 "purple" : preload("res://art/Sound/Music/WIN/purple.ogg"),
 "yellow" : preload("res://art/Sound/Music/WIN/yellow.ogg"),
