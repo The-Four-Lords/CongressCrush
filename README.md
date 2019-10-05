@@ -33,7 +33,7 @@ _Al utilizar estas piezas en una combinación, eliminaran las piezas de toda la 
 ![purple](./art/Pieces/PODEMOS_Row.png)
 ![blue](./art/Pieces/PP_Row.png)
 ![red](./art/Pieces/PSOE_Row.png)
-![green](./art/Pieces/Vox_Row.png)
+![green](./art/Pieces/VOX_Row.png)
 
 _Al utilizar estas piezas en una combinación, eliminaran las piezas de toda la fila dando escaños a sus respectivos partidos._
 
@@ -46,7 +46,7 @@ Al hacer una combinación en L de 3 piezas en columna y fila se obtiene una urna
 ![purple](./art/Pieces/PODEMOS_Adjacent.png)
 ![blue](./art/Pieces/PP_Adjacent.png)
 ![red](./art/Pieces/PSOE_Adjacent.png)
-![green](./art/Pieces/Vox_Adjacent.png)
+![green](./art/Pieces/VOX_Adjacent.png)
 
 _Combinando la urna con al menos otras 2 fichas de su partido, todas las fichas alrededor de esta se combinarán dando escaños a sus respectivos partidos._
 
