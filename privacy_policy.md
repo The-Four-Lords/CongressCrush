@@ -1,6 +1,6 @@
 ## Privacy Policy
 
-The Four Lords built the Congress Crush app as a Free app. This SERVICE is provided by The Four Lords at no cost and is intended for use as is.
+The Four Lords & Co built the Congress Crush app as a Free app. This SERVICE is provided by The Four Lords & Co at no cost and is intended for use as is.
 
 This page is used to inform visitors regarding my policies with the collection, use, and disclosure of Personal Information if anyone decided to use my Service.
 
