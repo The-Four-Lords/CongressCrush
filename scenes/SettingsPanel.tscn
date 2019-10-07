@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scenes/BaseMenuPanel.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/SettingsPanel.gd" type="Script" id=2]
@@ -6,12 +6,6 @@
 [ext_resource path="res://art/UI/Buttons/Sound On Button.png" type="Texture" id=4]
 [ext_resource path="res://art/UI/Buttons/Sound Off Button.png" type="Texture" id=5]
 [ext_resource path="res://art/UI/Buttons/Back Button.png" type="Texture" id=6]
-[ext_resource path="res://art/ConfigurationPanel/Jauja.png" type="Texture" id=7]
-[ext_resource path="res://art/ConfigurationPanel/Jauja_pressed.png" type="Texture" id=8]
-[ext_resource path="res://art/ConfigurationPanel/Votemos.png" type="Texture" id=9]
-[ext_resource path="res://art/ConfigurationPanel/Votemos_pressed.png" type="Texture" id=10]
-[ext_resource path="res://art/ConfigurationPanel/Dictadura.png" type="Texture" id=11]
-[ext_resource path="res://art/ConfigurationPanel/Dictadura_pressed.png" type="Texture" id=12]
 
 [node name="SettingsPanel" instance=ExtResource( 1 )]
 offset = Vector2( 576, 0 )
@@ -47,35 +41,5 @@ rect_min_size = Vector2( 512, 128 )
 texture_normal = ExtResource( 6 )
 expand = true
 stretch_mode = 5
-
-[node name="EasyButton" type="TextureButton" parent="MarginContainer/GraphicAndButtons/Buttons" index="2"]
-visible = false
-margin_top = 424.0
-margin_right = 536.0
-margin_bottom = 488.0
-toggle_mode = true
-texture_normal = ExtResource( 7 )
-texture_pressed = ExtResource( 8 )
-
-[node name="MediumButton" type="TextureButton" parent="MarginContainer/GraphicAndButtons/Buttons" index="3"]
-visible = false
-margin_top = 508.0
-margin_right = 536.0
-margin_bottom = 572.0
-toggle_mode = true
-texture_normal = ExtResource( 9 )
-texture_pressed = ExtResource( 10 )
-
-[node name="HardButton" type="TextureButton" parent="MarginContainer/GraphicAndButtons/Buttons" index="4"]
-visible = false
-margin_top = 592.0
-margin_right = 536.0
-margin_bottom = 656.0
-toggle_mode = true
-texture_normal = ExtResource( 11 )
-texture_pressed = ExtResource( 12 )
 [connection signal="pressed" from="MarginContainer/GraphicAndButtons/Buttons/Button1" to="." method="_on_Button1_pressed"]
 [connection signal="pressed" from="MarginContainer/GraphicAndButtons/Buttons/Button2" to="." method="_on_Button2_pressed"]
-[connection signal="pressed" from="MarginContainer/GraphicAndButtons/Buttons/EasyButton" to="." method="_on_EasyButton_pressed"]
-[connection signal="pressed" from="MarginContainer/GraphicAndButtons/Buttons/MediumButton" to="." method="_on_MediumButton_pressed"]
-[connection signal="pressed" from="MarginContainer/GraphicAndButtons/Buttons/HardButton" to="." method="_on_HardButton_pressed"]
