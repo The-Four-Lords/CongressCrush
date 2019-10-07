@@ -39,15 +39,15 @@ custom_constants/separation = 28
 alignment = 1
 
 [node name="QuitButt" type="TextureButton" parent="MarginContainer/TextureRect/HBoxContainer2"]
-margin_left = 25.0
-margin_right = 195.0
+margin_left = 20.0
+margin_right = 189.0
 margin_bottom = 128.0
 texture_normal = ExtResource( 2 )
 texture_pressed = ExtResource( 3 )
 
 [node name="Continue" type="TextureButton" parent="MarginContainer/TextureRect/HBoxContainer2"]
-margin_left = 223.0
-margin_right = 395.0
+margin_left = 217.0
+margin_right = 400.0
 margin_bottom = 128.0
 texture_normal = ExtResource( 4 )
 texture_pressed = ExtResource( 5 )

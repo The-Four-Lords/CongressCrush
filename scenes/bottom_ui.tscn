@@ -107,7 +107,6 @@ margin_bottom = 62.0
 toggle_mode = true
 texture_normal = ExtResource( 10 )
 texture_pressed = ExtResource( 11 )
-
 [connection signal="pressed" from="MarginContainer/HBoxContainer/HBoxContainer/Pause" to="." method="_on_Pause_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/HBoxContainer/Reset" to="." method="_on_Reset_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/HBoxContainer2/TextureButton2" to="." method="_on_TextureButton2_pressed"]
