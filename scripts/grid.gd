@@ -435,22 +435,23 @@ func find_bombs():
 # bomb_type: 0 is adjacent, 1 is column bomb. 2 is row bomb and 3 is color bomb
 func make_bomb(bomb_type, color):
 	#print("DEBUG - make_bomb bomb_type:",bomb_type," color:",color)
-	var piece_one = all_pieces[tempSwapBack.column][tempSwapBack.row]
-	var piece_two = all_pieces[tempSwapBack.column + tempSwapBack.direction.x][tempSwapBack.row + tempSwapBack.direction.y]
-	for i in current_matches.size():
-		var current_column = current_matches[i].x
-		var current_row = current_matches[i].y
-		if all_pieces[current_column][current_row] == piece_one and piece_one.color == color:
-			damage_special(current_column, current_row)
-			#emit_signal("check_goal", piece_one.color)
-			piece_one.matched = false
-			change_bomb(bomb_type, piece_one)
-		if all_pieces[current_column][current_row] == piece_two and piece_two.color == color:
-			damage_special(current_column, current_row)
-			#emit_signal("check_goal", piece_two.color)
-			piece_two.matched = false
-			change_bomb(bomb_type, piece_two)
-	#emit_signal("check_goal", piece_one.color)
+	if tempSwapBack.column && tempSwapBack.row && tempSwapBack.direction:
+		var piece_one = all_pieces[tempSwapBack.column][tempSwapBack.row]
+		var piece_two = all_pieces[tempSwapBack.column + tempSwapBack.direction.x][tempSwapBack.row + tempSwapBack.direction.y]
+		for i in current_matches.size():
+			var current_column = current_matches[i].x
+			var current_row = current_matches[i].y
+			if all_pieces[current_column][current_row] == piece_one and piece_one.color == color:
+				damage_special(current_column, current_row)
+				#emit_signal("check_goal", piece_one.color)
+				piece_one.matched = false
+				change_bomb(bomb_type, piece_one)
+			if all_pieces[current_column][current_row] == piece_two and piece_two.color == color:
+				damage_special(current_column, current_row)
+				#emit_signal("check_goal", piece_two.color)
+				piece_two.matched = false
+				change_bomb(bomb_type, piece_two)
+		#emit_signal("check_goal", piece_one.color)
 
 func change_bomb(bomb_type, piece):
 	#SoundManager.play_random_combo_sound()
@@ -671,8 +672,8 @@ func find_adjacent_pieces(column, row):
 		for j in range(-1, 2):
 			var current_column = column + i
 			var current_row = row + j
-			var current_piece = all_pieces[current_column][current_row]
-			if is_in_grid(Vector2(column + i, row + j)):
+			if is_in_grid(Vector2(current_column, current_row)):
+				var current_piece = all_pieces[current_column][current_row]
 				if !is_piece_null(current_piece) and !is_piece_sinker(current_piece):
 					if current_piece.is_row_bomb:
 						match_all_in_row(j)
