@@ -451,6 +451,32 @@ func check_time_bonus(bomb_type, flag_color):
 		elif (flag_color): time_bonus(3)
 		else: time_bonus(bomb_type)
 
+func time_bonus(bomb_type):
+	var bonus = 0
+	match bomb_type:
+		0: bonus = 3 #box bomb
+		1: bonus = 2 #row bomb 1x4
+		2: bonus = 2 #column bomb 1x4
+		3: bonus = 4 #color bomb
+	if (bonus != 0):
+		#print("DEBUG - bomb_type:",bomb_type," bonus:",bonus)
+		current_counter_value += bonus #counter control
+		emit_signal("update_counter", bonus)
+		#$bonus_timer.start()
+
+func show_time_bonus():
+	if time_bonus_effect != null:
+		t_bonus = time_bonus_effect.instance()
+		add_child(t_bonus)
+		t_bonus.position = Utils.counter_label_node.position
+		t_bonus.Setup(Utils.counter_label_node.texture)
+
+func liberate_t_bonus():
+	$bonus_timer.stop()
+	if t_bonus != null:
+		t_bonus.queue_free()
+		t_bonus = null
+
 # bomb_type: 0 is adjacent, 1 is column bomb. 2 is row bomb and 3 is color bomb
 func make_bomb(bomb_type, color):
 	#print("DEBUG - make_bomb bomb_type:",bomb_type," color:",color)
@@ -484,32 +510,6 @@ func change_bomb(bomb_type, piece):
 	elif bomb_type == 3:
 		piece.make_color_bomb()
 		SoundManager.play_combo_sound("color")
-
-func time_bonus(bomb_type):
-	var bonus = 0
-	match bomb_type:
-		0: bonus = 3 #box bomb
-		1: bonus = 2 #row bomb 1x4
-		2: bonus = 2 #column bomb 1x4
-		3: bonus = 4 #color bomb
-	if (bonus != 0):
-		#print("DEBUG - bomb_type:",bomb_type," bonus:",bonus)
-		current_counter_value += bonus #counter control
-		emit_signal("update_counter", bonus)
-		#$bonus_timer.start()
-
-func show_time_bonus():
-	if time_bonus_effect != null:
-		t_bonus = time_bonus_effect.instance()
-		add_child(t_bonus)
-		t_bonus.position = Utils.counter_label_node.position#hints[rand].position
-		t_bonus.Setup(Utils.counter_label_node.texture)
-
-func liberate_t_bonus():
-	$bonus_timer.stop()
-	if t_bonus != null:
-		t_bonus.queue_free()
-		t_bonus = null
 
 func destroy_matched():
 	find_bombs()
