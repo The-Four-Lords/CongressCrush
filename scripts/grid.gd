@@ -62,6 +62,10 @@ export (PackedScene) var hint_effect
 var hint = null
 var hint_color = "";
 
+# Time Bonus Stuff
+export (PackedScene) var time_bonus_effect
+var t_bonus = null
+
 # The current pieces in the scene
 var all_pieces = []
 var clone_array = []
@@ -385,6 +389,8 @@ func find_bombs():
 	#print("DEBUG - color_bomb_used:",color_bomb_used)
 	var four_bombs_found = false
 	var current_color 
+	var bomb_type
+	var flag_color = false
 	if !color_bomb_used:
 		# Iterate over the current matches array
 		for i in current_matches.size():
@@ -402,24 +408,29 @@ func find_bombs():
 				if this_row == current_row and this_color == current_color:
 					row_matched += 1
 			if column_matched == COLUMN_COLOR_BOMB or row_matched == ROW_COLOR_BOMB:
+				flag_color = true
 				#print("DEBUG - color bomb | column_matched: ", column_matched, " row_matched: " , row_matched, " current_color:",current_color)
 				make_bomb(3, current_color)
+				bomb_type = 3
 				continue
 			elif column_matched >= COLUMN_ADJACENT_BOMB and row_matched >= ROW_ADJACENT_BOMB:
 				#print("DEBUG - adjacent bomb | column_matched: ", column_matched, " row_matched: " , row_matched, " current_color:",current_color)
 				make_bomb(0, current_color)
+				bomb_type = 0
 				emit_signal("check_goal", current_color)
 				continue
 			# In row matched make column bomb
 			elif row_matched == ROW_BOMB:
 				#print("DEBUG - column bomb | column_matched: ", column_matched, " row_matched: " , row_matched, " current_color:",current_color)
 				make_bomb(1, current_color)
+				bomb_type = 1
 				four_bombs_found = true
 				continue
 			# In column matched make row bombs
 			elif column_matched == COLUMN_BOMB:
 				#print("DEBUG - row bomb | column_matched: ", column_matched, " row_matched: " , row_matched, " current_color:",current_color)
 				make_bomb(2, current_color)
+				bomb_type = 2
 				four_bombs_found = true
 				continue
 			elif column_matched == 4 or row_matched == 4:
@@ -431,6 +442,14 @@ func find_bombs():
 				SoundManager.play_combo_sound("color")
 	if (four_bombs_found):
 		emit_signal("check_goal", current_color)
+	check_time_bonus(bomb_type, flag_color)
+
+
+func check_time_bonus(bomb_type, flag_color):
+	if (bomb_type != null): 
+		if (current_matches.size() == 4): time_bonus(1) #void pointx4 in 4 combo bombs
+		elif (flag_color): time_bonus(3)
+		else: time_bonus(bomb_type)
 
 # bomb_type: 0 is adjacent, 1 is column bomb. 2 is row bomb and 3 is color bomb
 func make_bomb(bomb_type, color):
@@ -464,6 +483,32 @@ func change_bomb(bomb_type, piece):
 	elif bomb_type == 3:
 		piece.make_color_bomb()
 		SoundManager.play_combo_sound("color")
+
+func time_bonus(bomb_type):
+	var bonus = 0
+	match bomb_type:
+		0: bonus = 3 #box bomb
+		1: bonus = 2 #row bomb 1x4
+		2: bonus = 2 #column bomb 1x4
+		3: bonus = 4 #color bomb
+	if (bonus != 0):
+		#print("DEBUG - bomb_type:",bomb_type," bonus:",bonus)
+		current_counter_value += bonus #counter control
+		emit_signal("update_counter", bonus)
+		#$bonus_timer.start()
+
+func show_time_bonus():
+	if time_bonus_effect != null:
+		t_bonus = time_bonus_effect.instance()
+		add_child(t_bonus)
+		t_bonus.position = Utils.counter_label_node.position#hints[rand].position
+		t_bonus.Setup(Utils.counter_label_node.texture)
+
+func liberate_t_bonus():
+	$bonus_timer.stop()
+	if t_bonus != null:
+		t_bonus.queue_free()
+		t_bonus = null
 
 func destroy_matched():
 	find_bombs()
@@ -857,3 +902,6 @@ func _on_regenerate_board_timeout():
 
 func _on_hint_timer_timeout():
 	generate_hint()
+
+func _on_bonus_timer_timeout():
+	show_time_bonus()

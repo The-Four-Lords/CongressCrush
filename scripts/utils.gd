@@ -8,13 +8,15 @@ const GLOBAL_PIECE_VALUES_ACCORDING_LEVEL = {
 "medium" : 4,
 "hard" : 2
 }
-var global_piece_value = GLOBAL_PIECE_VALUES_ACCORDING_LEVEL["medium"] # Hard by default
+var global_piece_value = GLOBAL_PIECE_VALUES_ACCORDING_LEVEL["hard"] # Hard by default
 
 var GAME_ALREADY_END = false;
 
 var CURRENT_SEAT_COUNT = 0;
 
 var win_color
+
+var counter_label_node
 
 var empty_spaces_dictionary = [
 	{

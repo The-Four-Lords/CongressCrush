@@ -73,7 +73,8 @@ preload("res://art/Sound/Effects/Cortes/yellow4.ogg")
 ]
 # Combo sounds for color pieces
 var combo_sounds_color = [
-preload("res://art/Sound/Effects/Cortes/color.ogg")
+#preload("res://art/Sound/Effects/Cortes/color.ogg")
+preload("res://art/Sound/Effects/delisioso.ogg")
 ]
 # All combo sounds
 var combo_sounds = {

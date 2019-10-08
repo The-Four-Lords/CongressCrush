@@ -11,10 +11,11 @@ func _on_Pause_pressed():
 	emit_signal("pause_game")
 	get_tree().paused = true
 
-func _on_grid_update_counter(new_value = -1):	
+func _on_grid_update_counter(new_value = -1):
+	if(Utils.counter_label_node == null): Utils.counter_label_node = $MarginContainer/HBoxContainer/VBoxContainer/Sprite
 	current_counter += new_value
-	#print("DEBUG - ", current_counter)
-	if current_counter < 10:
+	if current_counter > 99: current_counter = 99 #time_bonus control
+	if current_counter < 10: #2digits panel control
 		var number_fixed_2_digits = "0" + String(current_counter)
 		counter_label.text = number_fixed_2_digits
 	else: 
