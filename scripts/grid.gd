@@ -62,11 +62,6 @@ export (PackedScene) var hint_effect
 var hint = null
 var hint_color = "";
 
-# Time Bonus Stuff
-export (PackedScene) var time_bonus_effect
-var time_bonus = null
-var time_bonus_position
-
 # The current pieces in the scene
 var all_pieces = []
 var clone_array = []
@@ -443,35 +438,6 @@ func find_bombs():
 				SoundManager.play_combo_sound("color")
 	if four_bombs_found:
 		emit_signal("check_goal", current_color)
-	check_time_bonus(bomb_type, flag_color)
-
-
-func check_time_bonus(bomb_type, flag_color):
-	if (bomb_type != null): 
-		if (current_matches.size() == 4): calculate_time_bonus(1) #void pointx4 in 4 combo bombs
-		elif (flag_color): calculate_time_bonus(3)
-		else: calculate_time_bonus(bomb_type)
-
-func calculate_time_bonus(bomb_type):
-	var bonus = 0
-	match bomb_type:
-		0: bonus = 2 #box bomb
-		1: bonus = 1 #row bomb 1x4
-		2: bonus = 1 #column bomb 1x4
-		3: bonus = 3 #color bomb
-	if (bonus != 0):
-		#print("DEBUG - bomb_type:",bomb_type," bonus:",bonus)
-		current_counter_value += bonus #counter control
-		emit_signal("update_counter", bonus)
-		show_time_bonus(bonus)
-
-func show_time_bonus(bonus):
-	if time_bonus_effect != null:
-		time_bonus = time_bonus_effect.instance()
-		add_child(time_bonus)
-		if (time_bonus != null && time_bonus_position != null):
-			time_bonus.position = time_bonus_position
-			time_bonus.setup(bonus)
 
 # bomb_type: 0 is adjacent, 1 is column bomb. 2 is row bomb and 3 is color bomb
 func make_bomb(bomb_type, color):
@@ -486,13 +452,11 @@ func make_bomb(bomb_type, color):
 				damage_special(current_column, current_row)
 				#emit_signal("check_goal", piece_one.color)
 				piece_one.matched = false
-				time_bonus_position = piece_one.position
 				change_bomb(bomb_type, piece_one)
 			if all_pieces[current_column][current_row] == piece_two and piece_two.color == color:
 				damage_special(current_column, current_row)
 				#emit_signal("check_goal", piece_two.color)
 				piece_two.matched = false
-				time_bonus_position = piece_two.position
 				change_bomb(bomb_type, piece_two)
 
 func change_bomb(bomb_type, piece):
