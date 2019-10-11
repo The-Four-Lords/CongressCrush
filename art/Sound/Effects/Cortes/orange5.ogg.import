@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/orange5.ogg-1b849419e980b54592d3c76f7a64e7c9.oggstr"
+
+[deps]
+
+source_file="res://art/Sound/Effects/Cortes/orange5.ogg"
+dest_files=[ "res://.import/orange5.ogg-1b849419e980b54592d3c76f7a64e7c9.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/purple4.ogg-0e2437060e176804fa3738f057233f1b.oggstr"
+
+[deps]
+
+source_file="res://art/Sound/Effects/Cortes/purple4.ogg"
+dest_files=[ "res://.import/purple4.ogg-0e2437060e176804fa3738f057233f1b.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

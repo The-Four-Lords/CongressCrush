@@ -40,36 +40,55 @@ var win_sounds = {
 var combo_sounds_blue = [
 preload("res://art/Sound/Effects/Cortes/blue1.ogg"),
 preload("res://art/Sound/Effects/Cortes/blue2.ogg"),
-preload("res://art/Sound/Effects/Cortes/blue3.ogg")
+preload("res://art/Sound/Effects/Cortes/blue3.ogg"),
+preload("res://art/Sound/Effects/Cortes/blue4.ogg"),
+preload("res://art/Sound/Effects/Cortes/blue5.ogg"),
+preload("res://art/Sound/Effects/Cortes/blue6.ogg")
 ]
 # Combo sounds for purple pieces
 var combo_sounds_purple = [
 preload("res://art/Sound/Effects/Cortes/purple1.ogg"),
 preload("res://art/Sound/Effects/Cortes/purple2.ogg"),
-preload("res://art/Sound/Effects/Cortes/purple3.ogg")
+preload("res://art/Sound/Effects/Cortes/purple3.ogg"),
+preload("res://art/Sound/Effects/Cortes/purple4.ogg"),
+preload("res://art/Sound/Effects/Cortes/purple5.ogg"),
+preload("res://art/Sound/Effects/Cortes/purple6.ogg")
 ]
 # Combo sounds for green pieces
 var combo_sounds_green = [
 preload("res://art/Sound/Effects/Cortes/green1.ogg"),
-preload("res://art/Sound/Effects/Cortes/green2.ogg")
+preload("res://art/Sound/Effects/Cortes/green2.ogg"),
+preload("res://art/Sound/Effects/Cortes/green3.ogg"),
+preload("res://art/Sound/Effects/Cortes/green4.ogg"),
+preload("res://art/Sound/Effects/Cortes/green5.ogg")
 ]
 # Combo sounds for orange pieces
 var combo_sounds_orange = [
 preload("res://art/Sound/Effects/Cortes/orange1.ogg"),
 preload("res://art/Sound/Effects/Cortes/orange2.ogg"),
-preload("res://art/Sound/Effects/Cortes/orange3.ogg")
+preload("res://art/Sound/Effects/Cortes/orange3.ogg"),
+preload("res://art/Sound/Effects/Cortes/orange4.ogg"),
+preload("res://art/Sound/Effects/Cortes/orange5.ogg"),
+preload("res://art/Sound/Effects/Cortes/orange6.ogg")
 ]
 # Combo sounds for red pieces
 var combo_sounds_red = [
 preload("res://art/Sound/Effects/Cortes/red1.ogg"),
-preload("res://art/Sound/Effects/Cortes/red2.ogg")
+preload("res://art/Sound/Effects/Cortes/red2.ogg"),
+preload("res://art/Sound/Effects/Cortes/red3.ogg"),
+preload("res://art/Sound/Effects/Cortes/red4.ogg"),
+preload("res://art/Sound/Effects/Cortes/red5.ogg"),
+preload("res://art/Sound/Effects/Cortes/red6.ogg")
 ]
 # Combo sounds for yellow pieces
 var combo_sounds_yellow = [
 preload("res://art/Sound/Effects/Cortes/yellow1.ogg"),
 preload("res://art/Sound/Effects/Cortes/yellow2.ogg"),
 preload("res://art/Sound/Effects/Cortes/yellow3.ogg"),
-preload("res://art/Sound/Effects/Cortes/yellow4.ogg")
+preload("res://art/Sound/Effects/Cortes/yellow4.ogg"),
+preload("res://art/Sound/Effects/Cortes/yellow5.ogg"),
+preload("res://art/Sound/Effects/Cortes/yellow6.ogg"),
+preload("res://art/Sound/Effects/Cortes/yellow7.ogg"),
 ]
 # Combo sounds for color pieces
 var combo_sounds_color = [

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/blue5.ogg-da707e2b7b8a1f38490d1373b86f34ae.oggstr"
+
+[deps]
+
+source_file="res://art/Sound/Effects/Cortes/blue5.ogg"
+dest_files=[ "res://.import/blue5.ogg-da707e2b7b8a1f38490d1373b86f34ae.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
