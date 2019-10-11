@@ -49,9 +49,9 @@ var firstTurn
 
 # The piece array
 var possible_pieces = [
-preload("res://scenes/Piece/cs_piece.tscn"),
-preload("res://scenes/Piece/erc_piece.tscn"),
-preload("res://scenes/Piece/podemos_piece.tscn"),
+#preload("res://scenes/Piece/cs_piece.tscn"),
+#preload("res://scenes/Piece/erc_piece.tscn"),
+#preload("res://scenes/Piece/podemos_piece.tscn"),
 preload("res://scenes/Piece/pp_piece.tscn"),
 preload("res://scenes/Piece/psoe_piece.tscn"),
 preload("res://scenes/Piece/vox_piece.tscn")
@@ -441,7 +441,7 @@ func find_bombs():
 				continue
 			elif column_matched == 5 or row_matched == 5:
 				SoundManager.play_combo_sound("color")
-	if (four_bombs_found):
+	if four_bombs_found:
 		emit_signal("check_goal", current_color)
 	check_time_bonus(bomb_type, flag_color)
 
@@ -455,10 +455,10 @@ func check_time_bonus(bomb_type, flag_color):
 func calculate_time_bonus(bomb_type):
 	var bonus = 0
 	match bomb_type:
-		0: bonus = 3 #box bomb
-		1: bonus = 2 #row bomb 1x4
-		2: bonus = 2 #column bomb 1x4
-		3: bonus = 4 #color bomb
+		0: bonus = 2 #box bomb
+		1: bonus = 1 #row bomb 1x4
+		2: bonus = 1 #column bomb 1x4
+		3: bonus = 3 #color bomb
 	if (bonus != 0):
 		#print("DEBUG - bomb_type:",bomb_type," bonus:",bonus)
 		current_counter_value += bonus #counter control
@@ -469,8 +469,9 @@ func show_time_bonus(bonus):
 	if time_bonus_effect != null:
 		time_bonus = time_bonus_effect.instance()
 		add_child(time_bonus)
-		time_bonus.position = time_bonus_position
-		time_bonus.setup(bonus)
+		if (time_bonus != null && time_bonus_position != null):
+			time_bonus.position = time_bonus_position
+			time_bonus.setup(bonus)
 
 # bomb_type: 0 is adjacent, 1 is column bomb. 2 is row bomb and 3 is color bomb
 func make_bomb(bomb_type, color):
