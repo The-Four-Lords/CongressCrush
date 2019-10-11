@@ -64,7 +64,8 @@ var hint_color = "";
 
 # Time Bonus Stuff
 export (PackedScene) var time_bonus_effect
-var t_bonus = null
+var time_bonus = null
+var time_bonus_position
 
 # The current pieces in the scene
 var all_pieces = []
@@ -447,11 +448,11 @@ func find_bombs():
 
 func check_time_bonus(bomb_type, flag_color):
 	if (bomb_type != null): 
-		if (current_matches.size() == 4): time_bonus(1) #void pointx4 in 4 combo bombs
-		elif (flag_color): time_bonus(3)
-		else: time_bonus(bomb_type)
+		if (current_matches.size() == 4): calculate_time_bonus(1) #void pointx4 in 4 combo bombs
+		elif (flag_color): calculate_time_bonus(3)
+		else: calculate_time_bonus(bomb_type)
 
-func time_bonus(bomb_type):
+func calculate_time_bonus(bomb_type):
 	var bonus = 0
 	match bomb_type:
 		0: bonus = 3 #box bomb
@@ -462,20 +463,14 @@ func time_bonus(bomb_type):
 		#print("DEBUG - bomb_type:",bomb_type," bonus:",bonus)
 		current_counter_value += bonus #counter control
 		emit_signal("update_counter", bonus)
-		#$bonus_timer.start()
+		show_time_bonus(bonus)
 
-func show_time_bonus():
+func show_time_bonus(bonus):
 	if time_bonus_effect != null:
-		t_bonus = time_bonus_effect.instance()
-		add_child(t_bonus)
-		t_bonus.position = Utils.counter_label_node.position
-		t_bonus.Setup(Utils.counter_label_node.texture)
-
-func liberate_t_bonus():
-	$bonus_timer.stop()
-	if t_bonus != null:
-		t_bonus.queue_free()
-		t_bonus = null
+		time_bonus = time_bonus_effect.instance()
+		add_child(time_bonus)
+		time_bonus.position = time_bonus_position
+		time_bonus.setup(bonus)
 
 # bomb_type: 0 is adjacent, 1 is column bomb. 2 is row bomb and 3 is color bomb
 func make_bomb(bomb_type, color):
@@ -490,16 +485,16 @@ func make_bomb(bomb_type, color):
 				damage_special(current_column, current_row)
 				#emit_signal("check_goal", piece_one.color)
 				piece_one.matched = false
+				time_bonus_position = piece_one.position
 				change_bomb(bomb_type, piece_one)
 			if all_pieces[current_column][current_row] == piece_two and piece_two.color == color:
 				damage_special(current_column, current_row)
 				#emit_signal("check_goal", piece_two.color)
 				piece_two.matched = false
+				time_bonus_position = piece_two.position
 				change_bomb(bomb_type, piece_two)
-		#emit_signal("check_goal", piece_one.color)
 
 func change_bomb(bomb_type, piece):
-	#SoundManager.play_random_combo_sound()
 	SoundManager.play_combo_sound(piece.color)
 	if bomb_type == 0:
 		piece.make_adjacent_bomb()
@@ -903,6 +898,3 @@ func _on_regenerate_board_timeout():
 
 func _on_hint_timer_timeout():
 	generate_hint()
-
-func _on_bonus_timer_timeout():
-	show_time_bonus()
