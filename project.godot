@@ -17,6 +17,7 @@ _global_script_class_icons={
 
 config/name="Congress Crush"
 run/main_scene="res://scenes/GameMenu.tscn"
+boot_splash/image="res://art/Logo/FourLords.png"
 config/icon="res://art/Logo/App_icon.png"
 
 [autoload]
