@@ -193,5 +193,5 @@ script = ExtResource( 25 )
 [connection signal="timeout" from="create_pieces_timer" to="grid" method="_on_create_pieces_timer_timeout"]
 [connection signal="timeout" from="swap_back_timer" to="grid" method="_on_swap_back_timer_timeout"]
 [connection signal="create_goal" from="GoalHolder" to="CanvasLayer/top_ui" method="_on_GoalHolder_create_goal"]
-[connection signal="game_won" from="GoalHolder" to="GameWinScreen" method="_on_GoalHolder_game_won"]
 [connection signal="game_won" from="GoalHolder" to="grid" method="_on_GoalHolder_game_won"]
+[connection signal="game_won" from="GoalHolder" to="GameWinScreen" method="_on_GoalHolder_game_won"]

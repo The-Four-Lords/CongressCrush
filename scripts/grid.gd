@@ -49,10 +49,10 @@ var firstTurn
 
 # The piece array
 var possible_pieces = [
-#preload("res://scenes/Piece/cs_piece.tscn"),
-#preload("res://scenes/Piece/erc_piece.tscn"),
+preload("res://scenes/Piece/cs_piece.tscn"),
+preload("res://scenes/Piece/erc_piece.tscn"),
 preload("res://scenes/Piece/podemos_piece.tscn"),
-#preload("res://scenes/Piece/pp_piece.tscn"),
+preload("res://scenes/Piece/pp_piece.tscn"),
 preload("res://scenes/Piece/psoe_piece.tscn"),
 preload("res://scenes/Piece/vox_piece.tscn")
 ]
@@ -442,7 +442,6 @@ func find_bombs():
 			elif column_matched == 5 or row_matched == 5:
 				SoundManager.play_combo_sound("color")
 	if four_bombs_found: emit_signal("check_goal", current_color)
-	check_time_bonus(bomb_type, flag_color)
 
 func check_time_bonus(bomb_type, flag_color):
 	if (bomb_type != null): 
@@ -459,10 +458,10 @@ func check_time_bonus(bomb_type, flag_color):
 func calculate_time_bonus(bomb_type):	
 	var bonus = 0
 	match bomb_type:
-		0: bonus = 2 #box bomb
-		1: bonus = 1 #row bomb 1x4
-		2: bonus = 1 #column bomb 1x4
-		3: bonus = 3 #color bomb
+		0: bonus = 3 #box bomb
+		1: bonus = 2 #row bomb 1x4
+		2: bonus = 2 #column bomb 1x4
+		3: bonus = 4 #color bomb
 	return bonus
 
 func show_time_bonus(bonus):
@@ -476,9 +475,9 @@ func show_time_bonus(bonus):
 # Must be called in the beggining the game, the label position no changed in device screen
 func set_time_bonus_position():
 	var time_label_node = get_parent().get_node("CanvasLayer/bottom_ui/MarginContainer/HBoxContainer/VBoxContainer/CounterLabel")
-	var time_label_size = time_label_node.rect_size	
+	var time_label_size = time_label_node.rect_size
 	var time_label_position = time_label_node.get_global_transform_with_canvas().get_origin()
-	time_bonus_position = Vector2(time_label_position.x + 40, time_label_position.y)
+	time_bonus_position = Vector2(time_label_position.x, time_label_position.y - 20)
 
 # bomb_type: 0 is adjacent, 1 is column bomb. 2 is row bomb and 3 is color bomb
 func make_bomb(bomb_type, color):
@@ -502,6 +501,7 @@ func make_bomb(bomb_type, color):
 
 func change_bomb(bomb_type, piece):
 	SoundManager.play_combo_sound(piece.color)
+	var is_color = false
 	if bomb_type == 0:
 		piece.make_adjacent_bomb()
 	elif bomb_type == 1:
@@ -510,7 +510,9 @@ func change_bomb(bomb_type, piece):
 		piece.make_row_bomb()
 	elif bomb_type == 3:
 		piece.make_color_bomb()
+		is_color = true
 		SoundManager.play_combo_sound("color")
+	check_time_bonus(bomb_type, is_color)
 
 func destroy_matched():
 	find_bombs()
