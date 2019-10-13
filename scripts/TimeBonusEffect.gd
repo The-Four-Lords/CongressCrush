@@ -22,13 +22,11 @@ func remove_text():
 
 func animate_position():
 	var iniPos = $EffectLabel.rect_position
-	var endPos = Vector2(iniPos.x - 100, iniPos.y + 100)
+	var endPos = Vector2(iniPos.x - 67, iniPos.y - 100)
 	$TweenPosition.interpolate_property($EffectLabel, 'rect_position', iniPos, endPos, ANIMATION_TIME, Tween.TRANS_SINE, Tween.EASE_OUT)
 	$TweenPosition.start()
 	
 func animate_scale():
-	var iniScale = $EffectLabel.rect_scale
-	var endScale = Vector2(iniScale.x * 5, iniScale.y * 3)
 	$TweenScale.interpolate_property($EffectLabel, 'rect_scale', Vector2(0.1,0.1), Vector2(1,1), ANIMATION_TIME, Tween.TRANS_SINE, Tween.EASE_OUT)
 	$TweenScale.start()
 	pass

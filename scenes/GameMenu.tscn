@@ -10,11 +10,11 @@ margin_right = 40.0
 margin_bottom = 40.0
 script = ExtResource( 1 )
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_right = 532.0
-margin_bottom = 987.0
 texture = ExtResource( 2 )
 expand = true
 

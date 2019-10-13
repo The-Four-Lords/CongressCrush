@@ -51,8 +51,8 @@ var firstTurn
 var possible_pieces = [
 #preload("res://scenes/Piece/cs_piece.tscn"),
 #preload("res://scenes/Piece/erc_piece.tscn"),
-#preload("res://scenes/Piece/podemos_piece.tscn"),
-preload("res://scenes/Piece/pp_piece.tscn"),
+preload("res://scenes/Piece/podemos_piece.tscn"),
+#preload("res://scenes/Piece/pp_piece.tscn"),
 preload("res://scenes/Piece/psoe_piece.tscn"),
 preload("res://scenes/Piece/vox_piece.tscn")
 ]
@@ -409,10 +409,10 @@ func find_bombs():
 				if this_row == current_row and this_color == current_color:
 					row_matched += 1
 			if column_matched == COLUMN_COLOR_BOMB or row_matched == ROW_COLOR_BOMB:
-				flag_color = true
 				#print("DEBUG - color bomb | column_matched: ", column_matched, " row_matched: " , row_matched, " current_color:",current_color)
 				make_bomb(3, current_color)
 				bomb_type = 3
+				flag_color = true
 				continue
 			elif column_matched >= COLUMN_ADJACENT_BOMB and row_matched >= ROW_ADJACENT_BOMB:
 				#print("DEBUG - adjacent bomb | column_matched: ", column_matched, " row_matched: " , row_matched, " current_color:",current_color)
@@ -441,29 +441,29 @@ func find_bombs():
 				continue
 			elif column_matched == 5 or row_matched == 5:
 				SoundManager.play_combo_sound("color")
-	if four_bombs_found:
-		emit_signal("check_goal", current_color)
+	if four_bombs_found: emit_signal("check_goal", current_color)
 	check_time_bonus(bomb_type, flag_color)
-
 
 func check_time_bonus(bomb_type, flag_color):
 	if (bomb_type != null): 
-		if (current_matches.size() == 4): calculate_time_bonus(1) #void pointx4 in 4 combo bombs
-		elif (flag_color): calculate_time_bonus(3)
-		else: calculate_time_bonus(bomb_type)
+		var bonus = 0
+		if (current_matches.size() == 4): bonus = calculate_time_bonus(1) #void pointx4 in 4 combo bombs
+		elif (flag_color): bonus = calculate_time_bonus(3)
+		else: bonus = calculate_time_bonus(bomb_type)
+		if (bonus != 0):
+			#print("DEBUG - bomb_type:",bomb_type," bonus:",bonus)
+			current_counter_value += bonus #counter control
+			emit_signal("update_counter", bonus)
+			show_time_bonus(bonus)
 
-func calculate_time_bonus(bomb_type):
+func calculate_time_bonus(bomb_type):	
 	var bonus = 0
 	match bomb_type:
 		0: bonus = 2 #box bomb
 		1: bonus = 1 #row bomb 1x4
 		2: bonus = 1 #column bomb 1x4
 		3: bonus = 3 #color bomb
-	if (bonus != 0):
-		#print("DEBUG - bomb_type:",bomb_type," bonus:",bonus)
-		current_counter_value += bonus #counter control
-		emit_signal("update_counter", bonus)
-		show_time_bonus(bonus)
+	return bonus
 
 func show_time_bonus(bonus):
 	if time_bonus_effect != null:
@@ -472,6 +472,13 @@ func show_time_bonus(bonus):
 		if (time_bonus != null && time_bonus_position != null):
 			time_bonus.position = time_bonus_position
 			time_bonus.setup(bonus)
+
+# Must be called in the beggining the game, the label position no changed in device screen
+func set_time_bonus_position():
+	var time_label_node = get_parent().get_node("CanvasLayer/bottom_ui/MarginContainer/HBoxContainer/VBoxContainer/CounterLabel")
+	var time_label_size = time_label_node.rect_size	
+	var time_label_position = time_label_node.get_global_transform_with_canvas().get_origin()
+	time_bonus_position = Vector2(time_label_position.x + 40, time_label_position.y)
 
 # bomb_type: 0 is adjacent, 1 is column bomb. 2 is row bomb and 3 is color bomb
 func make_bomb(bomb_type, color):
@@ -486,13 +493,11 @@ func make_bomb(bomb_type, color):
 				damage_special(current_column, current_row)
 				#emit_signal("check_goal", piece_one.color)
 				piece_one.matched = false
-				time_bonus_position = piece_one.position
 				change_bomb(bomb_type, piece_one)
 			if all_pieces[current_column][current_row] == piece_two and piece_two.color == color:
 				damage_special(current_column, current_row)
 				#emit_signal("check_goal", piece_two.color)
 				piece_two.matched = false
-				time_bonus_position = piece_two.position
 				change_bomb(bomb_type, piece_two)
 
 func change_bomb(bomb_type, piece):
@@ -772,6 +777,7 @@ func regenerate_board():
 	start_spawn()
 	
 func init_game(regeneration = false):
+	set_time_bonus_position() #prepare time bonus is always the same for the device
 	Utils.CURRENT_SEAT_COUNT = 0
 	Utils.GAME_ALREADY_END = false
 	SoundManager.disable_sounds(false)
