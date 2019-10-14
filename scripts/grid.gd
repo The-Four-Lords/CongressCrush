@@ -783,7 +783,6 @@ func regenerate_board():
 	start_spawn()
 	
 func init_game(regeneration = false):
-	print("regeneration:", regeneration)
 	set_time_bonus_position() #prepare time bonus is always the same for the device
 	Utils.CURRENT_SEAT_COUNT = 0
 	Utils.GAME_ALREADY_END = false
@@ -815,7 +814,6 @@ func show_regeneration_board_message():
 		if (regeneration_board != null):
 			regeneration_board.position = Vector2(0,50)
 			var message = "Regeneracion de tablero"
-			print("message:",message)
 			regeneration_board.setup(message)
 
 func start_spawn():

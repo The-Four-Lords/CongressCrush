@@ -88,7 +88,7 @@ var empty_spaces_dictionary = [
 		Vector2(0,4), Vector2(1,4), Vector2(7,4),
 		Vector2(0,5), Vector2(1,5), Vector2(7,5),
 		Vector2(0,6), Vector2(1,6), Vector2(7,6),
-		Vector2(0,9), Vector2(1,9), Vector2(2,9), Vector2(3,9), Vector2(4,9), Vector2(5,9)
+		Vector2(0,9), Vector2(1,9), Vector2(2,9), Vector2(3,9), Vector2(4,9), Vector2(5,9), Vector2(6,9), Vector2(7,9)
 		])
 	},
 	{
@@ -96,10 +96,10 @@ var empty_spaces_dictionary = [
 		value = PoolVector2Array([
 		Vector2(2,0), Vector2(3,0), Vector2(4,0), Vector2(5,0),
 		Vector2(2,1), Vector2(3,1), Vector2(4,1), Vector2(5,1),
-		Vector2(0,3), Vector2(2,3), Vector2(4,3), Vector2(6,3),
-		Vector2(0,5), Vector2(2,5), Vector2(4,5), Vector2(6,5),
-		Vector2(1,8), Vector2(3,8), Vector2(5,8), Vector2(7,8),
-		Vector2(1,9), Vector2(3,9), Vector2(5,9), Vector2(7,9)
+		Vector2(1,4), Vector2(2,4), Vector2(5,4), Vector2(6,4),
+		Vector2(1,6), Vector2(3,6), Vector2(4,6), Vector2(6,6),
+		Vector2(1,8), Vector2(2,8), Vector2(5,8), Vector2(6,8),
+		Vector2(1,9), Vector2(2,9), Vector2(5,9), Vector2(6,9)
 		])
 	}
 	
