@@ -73,7 +73,36 @@ var empty_spaces_dictionary = [
 			Vector2(3,1),
 			Vector2(4,1)
 			])
+	},
+	{
+		key = '3',
+		value = PoolVector2Array([])
+	},
+	{
+		key = '4',
+		value = PoolVector2Array([
+		Vector2(0,0), Vector2(1,0), Vector2(2,0), Vector2(3,0), Vector2(4,0), Vector2(5,0), Vector2(6,0), Vector2(7,0),
+		Vector2(0,1), Vector2(1,1), Vector2(2,1), Vector2(4,1), Vector2(5,1), Vector2(6,1), Vector2(7,1),
+		Vector2(0,2), Vector2(1,2), Vector2(6,2), Vector2(7,2),
+		Vector2(0,3), Vector2(1,3), Vector2(6,3), Vector2(7,3),
+		Vector2(0,4), Vector2(1,4), Vector2(7,4),
+		Vector2(0,5), Vector2(1,5), Vector2(7,5),
+		Vector2(0,6), Vector2(1,6), Vector2(7,6),
+		Vector2(0,9), Vector2(1,9), Vector2(2,9), Vector2(3,9), Vector2(4,9), Vector2(5,9)
+		])
+	},
+	{
+		key = '5',
+		value = PoolVector2Array([
+		Vector2(2,0), Vector2(3,0), Vector2(4,0), Vector2(5,0),
+		Vector2(2,1), Vector2(3,1), Vector2(4,1), Vector2(5,1),
+		Vector2(0,3), Vector2(2,3), Vector2(4,3), Vector2(6,3),
+		Vector2(0,5), Vector2(2,5), Vector2(4,5), Vector2(6,5),
+		Vector2(1,8), Vector2(3,8), Vector2(5,8), Vector2(7,8),
+		Vector2(1,9), Vector2(3,9), Vector2(5,9), Vector2(7,9)
+		])
 	}
+	
 ]
 
 func get_random_empty_spaces(rand):

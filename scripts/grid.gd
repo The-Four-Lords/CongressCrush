@@ -67,6 +67,10 @@ export (PackedScene) var time_bonus_effect
 var time_bonus = null
 var time_bonus_position
 
+# Generation board Stuff
+export (PackedScene) var regeneration_board_effect
+var regeneration_board = null
+
 # The current pieces in the scene
 var all_pieces = []
 var clone_array = []
@@ -779,6 +783,7 @@ func regenerate_board():
 	start_spawn()
 	
 func init_game(regeneration = false):
+	print("regeneration:", regeneration)
 	set_time_bonus_position() #prepare time bonus is always the same for the device
 	Utils.CURRENT_SEAT_COUNT = 0
 	Utils.GAME_ALREADY_END = false
@@ -793,13 +798,25 @@ func init_game(regeneration = false):
 		emit_signal("setup_max_score", max_score)
 		if !is_counter_in_moves:
 			$game_time.start()
+		randomize()
+		random_panel = randi() % Utils.get_empty_spaces_dictionary_size()
+	else:
+		show_regeneration_board_message()
 	color_bomb_used = false
 	streak = 1
 	Utils.initialize_special(empty_spaces, ice_spaces, lock_spaces, concrete_spaces, slime_spaces)
 	#empty_spaces = Utils.initialize_empty_spaces() # constant panel	
-	randomize()
-	random_panel = randi() % Utils.get_empty_spaces_dictionary_size()
 	empty_spaces = Utils.get_random_empty_spaces(random_panel)
+
+func show_regeneration_board_message():
+	if regeneration_board_effect != null:
+		regeneration_board = regeneration_board_effect.instance()
+		add_child(regeneration_board)
+		if (regeneration_board != null):
+			regeneration_board.position = Vector2(0,50)
+			var message = "Regeneracion de tablero"
+			print("message:",message)
+			regeneration_board.setup(message)
 
 func start_spawn():
 	if isDemo:
