@@ -62,6 +62,11 @@ export (PackedScene) var hint_effect
 var hint = null
 var hint_color = "";
 
+# Time Bonus Stuff
+export (PackedScene) var time_bonus_effect
+var time_bonus = null
+var time_bonus_position
+
 # Generation board Stuff
 export (PackedScene) var regeneration_board_effect
 var regeneration_board = null

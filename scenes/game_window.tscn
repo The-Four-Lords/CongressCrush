@@ -63,6 +63,7 @@ y_start = 800
 offset = 64
 y_offset = 2
 hint_effect = ExtResource( 7 )
+time_bonus_effect = ExtResource( 8 )
 regeneration_board_effect = ExtResource( 9 )
 piece_value = 10
 max_score = 350
