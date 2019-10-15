@@ -462,10 +462,10 @@ func check_time_bonus(bomb_type, flag_color):
 func calculate_time_bonus(bomb_type):	
 	var bonus = 0
 	match bomb_type:
-		0: bonus = 3 #box bomb
-		1: bonus = 2 #row bomb 1x4
-		2: bonus = 2 #column bomb 1x4
-		3: bonus = 4 #color bomb
+		0: bonus = 2 #box bomb
+		1: bonus = 1 #row bomb 1x4
+		2: bonus = 1 #column bomb 1x4
+		3: bonus = 3 #color bomb
 	return bonus
 
 func show_time_bonus(bonus):
@@ -786,8 +786,8 @@ func init_game(regeneration = false):
 	set_time_bonus_position() #prepare time bonus is always the same for the device
 	Utils.CURRENT_SEAT_COUNT = 0
 	Utils.GAME_ALREADY_END = false
-	SoundManager.disable_sounds(false)
-	SoundManager.disable_sounds(true)
+	SoundManager.enable_sounds(false)
+	SoundManager.enable_sounds(true)
 	move_camera()
 	firstTurn = true
 	all_pieces = make_2d_array()
@@ -813,7 +813,7 @@ func show_regeneration_board_message():
 		add_child(regeneration_board)
 		if (regeneration_board != null):
 			regeneration_board.position = Vector2(0,50)
-			var message = "Regeneracion de tablero"
+			var message = "Sin combinaciones... 0bras en el Congreso"
 			regeneration_board.setup(message)
 
 func start_spawn():

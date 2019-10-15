@@ -19,6 +19,7 @@ margin_bottom = 200.0
 rect_scale = Vector2( 0.7, 0.7 )
 rect_pivot_offset = Vector2( 285, 100 )
 custom_fonts/font = SubResource( 1 )
+custom_colors/font_color_shadow = Color( 0.92549, 0.501961, 0.0509804, 1 )
 text = "Regeneracion de tablero"
 align = 1
 autowrap = true

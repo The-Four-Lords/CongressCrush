@@ -26,12 +26,12 @@ func _on_GoalHolder_game_won():
 	image_texture.create_from_image(image, 0)
 	win_panel_texture.texture = image_texture
 	slide_in()
-	SoundManager.disable_sounds(false)
+	SoundManager.enable_sounds(false)
 	SoundManager.play_win_music(Utils.win_color)
 	SoundManager.remove_combo_audio()
 
 func _on_QuitButt_pressed():
-	SoundManager.disable_sounds(true)
+	SoundManager.enable_sounds(true)
 	SoundManager.stop_win_music_player()
 	get_tree().change_scene("res://scenes/GameMenu.tscn")
 

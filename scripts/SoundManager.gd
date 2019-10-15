@@ -10,6 +10,7 @@ var EFFECTS_LEVEL = -10
 var COMBO_LEVEL = 5
 var WIN_LEVEL = -10
 var MUTE = -100
+var sound_enable = true
 
 # Main theme
 var possible_music = [
@@ -115,70 +116,81 @@ func _ready():
 	play_random_music()
 
 func play_random_music():
-	if possible_music.size() > 0:
-		var temp = floor(rand_range(0, possible_music.size()))
-		music_player.stream = possible_music[temp]
-		music_player.play()
+	if sound_enable:
+		if possible_music.size() > 0:
+			var temp = floor(rand_range(0, possible_music.size()))
+			music_player.stream = possible_music[temp]
+			music_player.play()
 
 func play_random_sound():
-	if possible_sounds.size() > 0:
-		var temp = floor(rand_range(0, possible_sounds.size()))
-		sound_player.stream = possible_sounds[temp]
-		sound_player.play()
+	if sound_enable:
+		if possible_sounds.size() > 0:
+			var temp = floor(rand_range(0, possible_sounds.size()))
+			sound_player.stream = possible_sounds[temp]
+			sound_player.play()
 
 # @Deprecated - now is play_combo_sound(color)
 func play_random_combo_sound():
-	if possible_combo_sound.size() > 0:
-		var temp = floor(rand_range(0, possible_combo_sound.size()))
-		combo_sound_player.stream = possible_combo_sound[temp]
-		combo_sound_player.play()
+	if sound_enable:
+		if possible_combo_sound.size() > 0:
+			var temp = floor(rand_range(0, possible_combo_sound.size()))
+			combo_sound_player.stream = possible_combo_sound[temp]
+			combo_sound_player.play()
 
 func play_combo_sound(color):
-	var sounds_list = combo_sounds[color]
-	var list_size = sounds_list.size()
-	var sound_index = floor (rand_range(0, list_size))
-	var sound = sounds_list[sound_index]
-	#print("DEBUG - color:", color, " list_size:", list_size, " sound_index:", sound_index, " sound:", sound)
-	combo_sound_player.stream = sound
-	combo_sound_player.play()
+	if sound_enable:
+		var sounds_list = combo_sounds[color]
+		var list_size = sounds_list.size()
+		var sound_index = floor (rand_range(0, list_size))
+		var sound = sounds_list[sound_index]
+		#print("DEBUG - color:", color, " list_size:", list_size, " sound_index:", sound_index, " sound:", sound)
+		combo_sound_player.stream = sound
+		combo_sound_player.play()
 
 func stop_combo_sound():
-	combo_sound_player.stop()
+	if sound_enable:
+		combo_sound_player.stop()
 
 func play_fixed_sound(sound):
-	if sound < possible_sounds.size():
-		sound_player.stream = possible_sounds[sound]
-		sound_player.play()
+	if sound_enable:
+		if sound < possible_sounds.size():
+			sound_player.stream = possible_sounds[sound]
+			sound_player.play()
 
 func play_win_music(win_color):
-	#print("DEBUG sound win_color:",win_color)
-	win_player.stream = win_sounds[win_color]
-	win_player.play()
+	if sound_enable:
+		#print("DEBUG sound win_color:",win_color)
+		win_player.stream = win_sounds[win_color]
+		win_player.play()
 
 func stop_music_player():
-	music_player.stop()
+	if sound_enable:
+		music_player.stop()
 
 func activate_music(activate):
-	if (activate):
-		music_player.set_volume_db(MUSIC_LEVEL)
-	else:
-		music_player.set_volume_db(MUTE)
+	if sound_enable:
+		if (activate):
+			music_player.set_volume_db(MUSIC_LEVEL)
+		else:
+			music_player.set_volume_db(MUTE)
 
 func activate_effects(activate):
-	if (activate):
-		combo_sound_player.set_volume_db(COMBO_LEVEL)
-		sound_player.set_volume_db(EFFECTS_LEVEL)
-		win_player.set_volume_db(WIN_LEVEL)
-	else:
-		combo_sound_player.set_volume_db(MUTE)
-		sound_player.set_volume_db(MUTE)
-		win_player.set_volume_db(MUTE)
+	if sound_enable:
+		if (activate):
+			combo_sound_player.set_volume_db(COMBO_LEVEL)
+			sound_player.set_volume_db(EFFECTS_LEVEL)
+			win_player.set_volume_db(WIN_LEVEL)
+		else:
+			combo_sound_player.set_volume_db(MUTE)
+			sound_player.set_volume_db(MUTE)
+			win_player.set_volume_db(MUTE)
 
 func stop_win_music_player():
-	win_player.stream = null
-	win_player.stop()
+	if sound_enable:
+		win_player.stream = null
+		win_player.stop()
 
-func disable_sounds(enable):
+func enable_game_sound(enable):
 	if enable:
 		music_player.play()
 		win_player.play()
@@ -191,5 +203,9 @@ func disable_sounds(enable):
 		sound_player.volume_db = -80
 		combo_sound_player.volume_db = -80
 
+func enable_sounds(enable):
+	if sound_enable: enable_game_sound(enable)
+
 func remove_combo_audio():
-	combo_sound_player.stream = null
+	if sound_enable:
+		combo_sound_player.stream = null
