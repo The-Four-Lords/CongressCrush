@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://scenes/Camera2D.tscn" type="PackedScene" id=1]
 [ext_resource path="res://art/Background/Partida_Background.png" type="Texture" id=2]
@@ -7,23 +7,25 @@
 [ext_resource path="res://scenes/bottom_ui.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scripts/grid.gd" type="Script" id=6]
 [ext_resource path="res://scenes/HintEffect.tscn" type="PackedScene" id=7]
-[ext_resource path="res://scenes/Sinker.tscn" type="PackedScene" id=8]
-[ext_resource path="res://scripts/ice_holder.gd" type="Script" id=9]
-[ext_resource path="res://scripts/lock_holder.gd" type="Script" id=10]
-[ext_resource path="res://scripts/concrete_holder.gd" type="Script" id=11]
-[ext_resource path="res://scripts/slime_holder.gd" type="Script" id=12]
-[ext_resource path="res://scenes/GameOverPanel.tscn" type="PackedScene" id=13]
-[ext_resource path="res://scripts/GoalHolder.gd" type="Script" id=14]
-[ext_resource path="res://scenes/Goal.tscn" type="PackedScene" id=15]
-[ext_resource path="res://art/UI/PP_escano.png" type="Texture" id=16]
-[ext_resource path="res://art/UI/Vox_escano.png" type="Texture" id=17]
-[ext_resource path="res://art/UI/Psoe_escano.png" type="Texture" id=18]
-[ext_resource path="res://art/UI/Cs_escano.png" type="Texture" id=19]
-[ext_resource path="res://art/UI/ERC_escano.png" type="Texture" id=20]
-[ext_resource path="res://art/UI/Podemos_escano.png" type="Texture" id=21]
-[ext_resource path="res://scenes/GameWinScreen.tscn" type="PackedScene" id=22]
-[ext_resource path="res://scenes/PauseScreen.tscn" type="PackedScene" id=23]
-[ext_resource path="res://scripts/MusicPlayer.gd" type="Script" id=24]
+[ext_resource path="res://scenes/TimeBonusEffect.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/RegenerationBoardEffect.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/Sinker.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scripts/ice_holder.gd" type="Script" id=11]
+[ext_resource path="res://scripts/lock_holder.gd" type="Script" id=12]
+[ext_resource path="res://scripts/concrete_holder.gd" type="Script" id=13]
+[ext_resource path="res://scripts/slime_holder.gd" type="Script" id=14]
+[ext_resource path="res://scenes/GameOverPanel.tscn" type="PackedScene" id=15]
+[ext_resource path="res://scripts/GoalHolder.gd" type="Script" id=16]
+[ext_resource path="res://scenes/Goal.tscn" type="PackedScene" id=17]
+[ext_resource path="res://art/UI/PP_escano.png" type="Texture" id=18]
+[ext_resource path="res://art/UI/Vox_escano.png" type="Texture" id=19]
+[ext_resource path="res://art/UI/Psoe_escano.png" type="Texture" id=20]
+[ext_resource path="res://art/UI/Cs_escano.png" type="Texture" id=21]
+[ext_resource path="res://art/UI/ERC_escano.png" type="Texture" id=22]
+[ext_resource path="res://art/UI/Podemos_escano.png" type="Texture" id=23]
+[ext_resource path="res://scenes/GameWinScreen.tscn" type="PackedScene" id=24]
+[ext_resource path="res://scenes/PauseScreen.tscn" type="PackedScene" id=25]
+[ext_resource path="res://scripts/MusicPlayer.gd" type="Script" id=26]
 
 [node name="game_window" type="Node2D"]
 
@@ -61,10 +63,11 @@ y_start = 800
 offset = 64
 y_offset = 2
 hint_effect = ExtResource( 7 )
+regeneration_board_effect = ExtResource( 9 )
 piece_value = 10
 max_score = 350
 current_counter_value = 99
-sinker_piece = ExtResource( 8 )
+sinker_piece = ExtResource( 10 )
 
 [node name="game_time" type="Timer" parent="grid"]
 
@@ -77,17 +80,17 @@ wait_time = 3.0
 one_shot = true
 
 [node name="ice_holder" type="Node2D" parent="."]
-script = ExtResource( 9 )
+script = ExtResource( 11 )
 value = "ice"
 
 [node name="lock_holder" type="Node2D" parent="."]
-script = ExtResource( 10 )
+script = ExtResource( 12 )
 
 [node name="concrete_holder" type="Node2D" parent="."]
-script = ExtResource( 11 )
+script = ExtResource( 13 )
 
 [node name="slime_holder" type="Node2D" parent="."]
-script = ExtResource( 12 )
+script = ExtResource( 14 )
 
 [node name="destroy_timer" type="Timer" parent="."]
 wait_time = 0.5
@@ -110,58 +113,58 @@ autostart = true
 wait_time = 0.5
 one_shot = true
 
-[node name="GameOverPanel" parent="." instance=ExtResource( 13 )]
+[node name="GameOverPanel" parent="." instance=ExtResource( 15 )]
 
 [node name="GoalHolder" type="Node" parent="."]
 editor/display_folded = true
-script = ExtResource( 14 )
+script = ExtResource( 16 )
 
-[node name="GoalPP" parent="GoalHolder" instance=ExtResource( 15 )]
+[node name="GoalPP" parent="GoalHolder" instance=ExtResource( 17 )]
 goal_display_name = "PP"
-goal_texture = ExtResource( 16 )
+goal_texture = ExtResource( 18 )
 max_needed = 350
 goal_target = "blue"
 
-[node name="GoalVOX" parent="GoalHolder" instance=ExtResource( 15 )]
+[node name="GoalVOX" parent="GoalHolder" instance=ExtResource( 17 )]
 goal_display_name = "VOX"
-goal_texture = ExtResource( 17 )
+goal_texture = ExtResource( 19 )
 max_needed = 350
 goal_target = "green"
 
-[node name="GoalPSOE" parent="GoalHolder" instance=ExtResource( 15 )]
+[node name="GoalPSOE" parent="GoalHolder" instance=ExtResource( 17 )]
 goal_display_name = "PSOE"
-goal_texture = ExtResource( 18 )
+goal_texture = ExtResource( 20 )
 max_needed = 350
 goal_target = "red"
 
-[node name="GoalCs" parent="GoalHolder" instance=ExtResource( 15 )]
+[node name="GoalCs" parent="GoalHolder" instance=ExtResource( 17 )]
 goal_display_name = "Cs"
-goal_texture = ExtResource( 19 )
+goal_texture = ExtResource( 21 )
 max_needed = 350
 goal_target = "orange"
 
-[node name="GoalERC" parent="GoalHolder" instance=ExtResource( 15 )]
+[node name="GoalERC" parent="GoalHolder" instance=ExtResource( 17 )]
 goal_display_name = "ERC"
-goal_texture = ExtResource( 20 )
+goal_texture = ExtResource( 22 )
 max_needed = 350
 goal_target = "yellow"
 
-[node name="GoalPodemos" parent="GoalHolder" instance=ExtResource( 15 )]
+[node name="GoalPodemos" parent="GoalHolder" instance=ExtResource( 17 )]
 goal_display_name = "Podemos"
-goal_texture = ExtResource( 21 )
+goal_texture = ExtResource( 23 )
 max_needed = 350
 goal_target = "purple"
 
-[node name="GameWinScreen" parent="." instance=ExtResource( 22 )]
+[node name="GameWinScreen" parent="." instance=ExtResource( 24 )]
 
-[node name="PauseScreen" parent="." instance=ExtResource( 23 )]
+[node name="PauseScreen" parent="." instance=ExtResource( 25 )]
 
 [node name="MusicPlayer" type="Node" parent="."]
-script = ExtResource( 24 )
+script = ExtResource( 26 )
 [connection signal="pause_game" from="CanvasLayer/bottom_ui" to="PauseScreen" method="_on_bottom_ui_pause_game"]
 [connection signal="camera_effect" from="grid" to="Camera2D" method="_on_grid_camera_effect"]
-[connection signal="check_goal" from="grid" to="GoalHolder" method="_on_grid_check_goal"]
 [connection signal="check_goal" from="grid" to="CanvasLayer/top_ui" method="_on_grid_check_goal"]
+[connection signal="check_goal" from="grid" to="GoalHolder" method="_on_grid_check_goal"]
 [connection signal="damage_concrete" from="grid" to="concrete_holder" method="_on_grid_damage_concrete"]
 [connection signal="damage_ice" from="grid" to="ice_holder" method="_on_grid_damage_ice"]
 [connection signal="damage_lock" from="grid" to="lock_holder" method="_on_grid_damage_lock"]
@@ -179,8 +182,8 @@ script = ExtResource( 24 )
 [connection signal="timeout" from="grid/game_time" to="grid" method="_on_Timer_timeout"]
 [connection signal="timeout" from="grid/regenerate_board" to="grid" method="_on_regenerate_board_timeout"]
 [connection signal="timeout" from="grid/hint_timer" to="grid" method="_on_hint_timer_timeout"]
-[connection signal="break_ice" from="ice_holder" to="GoalHolder" method="_on_ice_holder_break_ice"]
 [connection signal="break_ice" from="ice_holder" to="CanvasLayer/top_ui" method="_on_ice_holder_break_ice"]
+[connection signal="break_ice" from="ice_holder" to="GoalHolder" method="_on_ice_holder_break_ice"]
 [connection signal="remove_ice" from="ice_holder" to="grid" method="_on_ice_holder_remove_ice"]
 [connection signal="remove_lock" from="lock_holder" to="grid" method="_on_lock_holder_remove_lock"]
 [connection signal="remove_concrete" from="concrete_holder" to="grid" method="_on_concrete_holder_remove_concrete"]
@@ -191,5 +194,5 @@ script = ExtResource( 24 )
 [connection signal="timeout" from="create_pieces_timer" to="grid" method="_on_create_pieces_timer_timeout"]
 [connection signal="timeout" from="swap_back_timer" to="grid" method="_on_swap_back_timer_timeout"]
 [connection signal="create_goal" from="GoalHolder" to="CanvasLayer/top_ui" method="_on_GoalHolder_create_goal"]
-[connection signal="game_won" from="GoalHolder" to="GameWinScreen" method="_on_GoalHolder_game_won"]
 [connection signal="game_won" from="GoalHolder" to="grid" method="_on_GoalHolder_game_won"]
+[connection signal="game_won" from="GoalHolder" to="GameWinScreen" method="_on_GoalHolder_game_won"]

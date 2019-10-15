@@ -62,6 +62,10 @@ export (PackedScene) var hint_effect
 var hint = null
 var hint_color = "";
 
+# Generation board Stuff
+export (PackedScene) var regeneration_board_effect
+var regeneration_board = null
+
 # The current pieces in the scene
 var all_pieces = []
 var clone_array = []
@@ -404,10 +408,10 @@ func find_bombs():
 				if this_row == current_row and this_color == current_color:
 					row_matched += 1
 			if column_matched == COLUMN_COLOR_BOMB or row_matched == ROW_COLOR_BOMB:
-				flag_color = true
 				#print("DEBUG - color bomb | column_matched: ", column_matched, " row_matched: " , row_matched, " current_color:",current_color)
 				make_bomb(3, current_color)
 				bomb_type = 3
+				flag_color = true
 				continue
 			elif column_matched >= COLUMN_ADJACENT_BOMB and row_matched >= ROW_ADJACENT_BOMB:
 				#print("DEBUG - adjacent bomb | column_matched: ", column_matched, " row_matched: " , row_matched, " current_color:",current_color)
@@ -436,8 +440,43 @@ func find_bombs():
 				continue
 			elif column_matched == 5 or row_matched == 5:
 				SoundManager.play_combo_sound("color")
-	if four_bombs_found:
-		emit_signal("check_goal", current_color)
+	if four_bombs_found: emit_signal("check_goal", current_color)
+
+func check_time_bonus(bomb_type, flag_color):
+	if (bomb_type != null): 
+		var bonus = 0
+		if (current_matches.size() == 4): bonus = calculate_time_bonus(1) #void pointx4 in 4 combo bombs
+		elif (flag_color): bonus = calculate_time_bonus(3)
+		else: bonus = calculate_time_bonus(bomb_type)
+		if (bonus != 0):
+			#print("DEBUG - bomb_type:",bomb_type," bonus:",bonus)
+			current_counter_value += bonus #counter control
+			emit_signal("update_counter", bonus)
+			show_time_bonus(bonus)
+
+func calculate_time_bonus(bomb_type):	
+	var bonus = 0
+	match bomb_type:
+		0: bonus = 2 #box bomb
+		1: bonus = 1 #row bomb 1x4
+		2: bonus = 1 #column bomb 1x4
+		3: bonus = 3 #color bomb
+	return bonus
+
+func show_time_bonus(bonus):
+	if time_bonus_effect != null:
+		time_bonus = time_bonus_effect.instance()
+		add_child(time_bonus)
+		if (time_bonus != null && time_bonus_position != null):
+			time_bonus.position = time_bonus_position
+			time_bonus.setup(bonus)
+
+# Must be called in the beggining the game, the label position no changed in device screen
+func set_time_bonus_position():
+	var time_label_node = get_parent().get_node("CanvasLayer/bottom_ui/MarginContainer/HBoxContainer/VBoxContainer/CounterLabel")
+	var time_label_size = time_label_node.rect_size
+	var time_label_position = time_label_node.get_global_transform_with_canvas().get_origin()
+	time_bonus_position = Vector2(time_label_position.x, time_label_position.y - 20)
 
 # bomb_type: 0 is adjacent, 1 is column bomb. 2 is row bomb and 3 is color bomb
 func make_bomb(bomb_type, color):
@@ -461,6 +500,7 @@ func make_bomb(bomb_type, color):
 
 func change_bomb(bomb_type, piece):
 	SoundManager.play_combo_sound(piece.color)
+	var is_color = false
 	if bomb_type == 0:
 		piece.make_adjacent_bomb()
 	elif bomb_type == 1:
@@ -469,7 +509,9 @@ func change_bomb(bomb_type, piece):
 		piece.make_row_bomb()
 	elif bomb_type == 3:
 		piece.make_color_bomb()
+		is_color = true
 		SoundManager.play_combo_sound("color")
+	check_time_bonus(bomb_type, is_color)
 
 func destroy_matched():
 	find_bombs()
@@ -736,10 +778,11 @@ func regenerate_board():
 	start_spawn()
 	
 func init_game(regeneration = false):
+	set_time_bonus_position() #prepare time bonus is always the same for the device
 	Utils.CURRENT_SEAT_COUNT = 0
 	Utils.GAME_ALREADY_END = false
-	SoundManager.disable_sounds(false)
-	SoundManager.disable_sounds(true)
+	SoundManager.enable_sounds(false)
+	SoundManager.enable_sounds(true)
 	move_camera()
 	firstTurn = true
 	all_pieces = make_2d_array()
@@ -749,13 +792,24 @@ func init_game(regeneration = false):
 		emit_signal("setup_max_score", max_score)
 		if !is_counter_in_moves:
 			$game_time.start()
+		randomize()
+		random_panel = randi() % Utils.get_empty_spaces_dictionary_size()
+	else:
+		show_regeneration_board_message()
 	color_bomb_used = false
 	streak = 1
 	Utils.initialize_special(empty_spaces, ice_spaces, lock_spaces, concrete_spaces, slime_spaces)
 	#empty_spaces = Utils.initialize_empty_spaces() # constant panel	
-	randomize()
-	random_panel = randi() % Utils.get_empty_spaces_dictionary_size()
 	empty_spaces = Utils.get_random_empty_spaces(random_panel)
+
+func show_regeneration_board_message():
+	if regeneration_board_effect != null:
+		regeneration_board = regeneration_board_effect.instance()
+		add_child(regeneration_board)
+		if (regeneration_board != null):
+			regeneration_board.position = Vector2(0,50)
+			var message = "Sin combinaciones... 0bras en el Congreso"
+			regeneration_board.setup(message)
 
 func start_spawn():
 	if isDemo:
