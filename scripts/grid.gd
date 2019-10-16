@@ -453,12 +453,16 @@ func find_bombs():
 func check_time_bonus(bomb_type, flag_color):
 	if (bomb_type != null): 
 		var bonus = 0
-		if bomb_type == 1 or bomb_type == 2 : four_bomb_counter += 1#void pointx4 in 4 combo bombs
-		if (flag_color): bonus = calculate_time_bonus(3)
+		# Check 4 bomb control
+		var is_four_bomb_combo = bomb_type == 1 or bomb_type == 2
+		if is_four_bomb_combo : four_bomb_counter += 1
+		# Calculate bonus
+		if flag_color: bonus = calculate_time_bonus(3)
 		else: bonus = calculate_time_bonus(bomb_type)
+		# Set bonus
 		if (bonus != 0):
 			#print("DEBUG - bomb_type:",bomb_type," bonus:",bonus)
-			if (bomb_type == 1 or bomb_type == 2):
+			if is_four_bomb_combo:
 				if four_bomb_counter == 4:
 					current_counter_value += bonus #counter control
 					emit_signal("update_counter", bonus)
