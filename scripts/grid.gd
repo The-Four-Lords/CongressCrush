@@ -124,6 +124,9 @@ signal play_sound
 signal place_camera
 signal camera_effect
 
+# Four bomb counter control
+var four_bomb_counter = 0
+
 func _ready():
 	init_game()
 
@@ -450,16 +453,22 @@ func find_bombs():
 func check_time_bonus(bomb_type, flag_color):
 	if (bomb_type != null): 
 		var bonus = 0
-		if (current_matches.size() == 4): bonus = calculate_time_bonus(1) #void pointx4 in 4 combo bombs
-		elif (flag_color): bonus = calculate_time_bonus(3)
+		if bomb_type == 1 or bomb_type == 2 : four_bomb_counter += 1#void pointx4 in 4 combo bombs
+		if (flag_color): bonus = calculate_time_bonus(3)
 		else: bonus = calculate_time_bonus(bomb_type)
 		if (bonus != 0):
 			#print("DEBUG - bomb_type:",bomb_type," bonus:",bonus)
-			current_counter_value += bonus #counter control
-			emit_signal("update_counter", bonus)
+			if (bomb_type == 1 or bomb_type == 2):
+				if four_bomb_counter == 4:
+					current_counter_value += bonus #counter control
+					emit_signal("update_counter", bonus)
+					four_bomb_counter = 0
+			else:
+				current_counter_value += bonus #counter control
+				emit_signal("update_counter", bonus)
 			show_time_bonus(bonus)
 
-func calculate_time_bonus(bomb_type):	
+func calculate_time_bonus(bomb_type):
 	var bonus = 0
 	match bomb_type:
 		0: bonus = 2 #box bomb
