@@ -52,5 +52,6 @@ stretch_mode = 2
 position = Vector2( 446.94, 454.021 )
 scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 7 )
+
 [connection signal="pressed" from="MarginContainer/GraphicAndButtons/Buttons/Button1" to="." method="_on_Button1_pressed"]
 [connection signal="pressed" from="MarginContainer/GraphicAndButtons/Buttons/Button2" to="." method="_on_Button2_pressed"]

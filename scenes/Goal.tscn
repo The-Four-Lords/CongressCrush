@@ -4,3 +4,4 @@
 
 [node name="Goal" type="Node"]
 script = ExtResource( 1 )
+
